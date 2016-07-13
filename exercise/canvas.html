@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="game.js"></script>
+<script type="text/javascript">
+
+
+
+
+      function draw(){
+        var canvas = document.getElementById('canvas');
+        var color =255;
+        if (canvas.getContext){
+            
+          var ctx = canvas.getContext('2d');
+            for(var j =0;j<10;j++){
+                for(var i =0;i<10;i++){
+                if(j%2==0){
+                    ctx.fillStyle = "rgba(0,0,0,0.3)";
+                    ctx.fillRect (j*80, i*80, 40, 40);
+                    ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                    ctx.fillRect (40+j*80, 40+i*80, 40, 40);
+                }
+                else
+                {
+                    
+                    ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                    ctx.fillRect (j*80, i*80, 40, 40);
+                    ctx.fillStyle = "rgba(0,0, 0,0.3)";
+                    ctx.fillRect (40+j*80, 40+i*80, 40, 40);
+                }
+                }
+             
+            }
+                    var T_spin = canvas.getContext('2d');
+                    T_spin.fillStyle = "rgba(0,0,0,0.3)";
+                    T_spin.fillRect (1020, 50, 120, 40);
+                    T_spin.fillStyle = "rgba(0, 0, 0, 0.3)";
+                    T_spin.fillRect (1060, 90, 40, 80);
+                    
+                    var L_spin = canvas.getContext('2d');
+                    L_spin.fillStyle = "rgba(0,0,0,0.3)";
+                    L_spin.fillRect (1020, 250, 80, 40);
+                    L_spin.fillStyle = "rgba(0, 0, 0, 0.3)";
+                    L_spin.fillRect (1060,290, 40, 80);
+                    
+                    var squere = canvas.getContext('2d');
+                    squere.fillStyle = "rgba(0,0,0,0.3)";
+                    squere.fillRect (1020, 450, 80, 80);
+                    
+            
+        }
+        
+        
+        
+      }
+      
+    </script>
+<title>Canvas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="draw();">
+<div align="left">
+<canvas id="canvas" width="1200" height="800" style="border-style:groove;border-width:5px; position: absolute; z-index : 0">
+</canvas>
+<canvas id="canvas2" width="1200" height="800" style="border-style:groove;border-width:5px; position: absolute;z-index : 1">
+</canvas>
+</div>
+<form>
+<input type="button" name="btncolor" value="紅色"/>
+</form>
+</body>
+</html>

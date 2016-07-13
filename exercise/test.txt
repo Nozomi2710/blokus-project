@@ -1,0 +1,45 @@
+ git init/*新建資料夾一定要用不然根本抓不到*/
+ git commit -am"註解"
+ git add index.php//filename
+ git add Login/  /*folder name*/
+ git push HomeWork master //HomeWork用
+ 
+ 6.  使用 GitHub
+
+
+6.1 登入 https://github.com/  GitHub 網站，
+    建立一個新的 repository，設定如下:
+    Repository name: gitLab
+    勾選: Initialize this repository with a README
+
+
+6.2 回到 Cloud9，在終端機視窗輸入下列指令，
+    設定 github 對應的遠端 GitHub repository:
+    
+git remote add github https://github.com/你的GitHub帳號/gitLab
+例如:
+git remote add github https://github.com/AppDev1226/gitLab
+
+
+6.3 在終端機視窗輸入 git remote 指令，確定 github 已在清單之列。
+
+
+6.4 在終端機視窗輸入下列指令，將 GitHub 的內容下載下來:
+git pull github master -q
+
+
+6.5 在終端機視窗輸入下列指令，將本機的 repository 上傳到 GitHub:
+git push github master
+Username for 'https://github.com': Nozomi2710
+Password for 'https://Nozomi2710@github.com': fornewone3607
+
+    <Note> Username 與 Password 請輸入你 GitHub 的帳號與密碼
+
+
+6.6 重新整理 GitHub 網頁，檢視 shopping.txt 與歷程記錄。
+
+//one tab 儲存待讀網頁
+http://www.one-tab.com/page/ccCFegV-Q-qK38jBOs2yWQ
+
+//更多的待讀網頁
+http://www.one-tab.com/page/OqxRKWCYTKC4Wgvtzqt3jQ
