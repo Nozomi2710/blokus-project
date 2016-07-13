@@ -22,4 +22,5 @@ EX：<br>
 <br>
 進度清單：<br>
 2016/07/13更新<br>
+任何進度內容空白位置皆為有空時盡速補上作業的時間點<br>
 <img src="http://i.imgur.com/oS8y1Jg.png"></img>
