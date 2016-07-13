@@ -4,20 +4,28 @@
 <meta charset="UTF-8">
 <title>HomeWork</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="jquery.js"></script>
-<script src="CpickDomino.js"></script>
+<script src="../jquery.js"></script>
+<script src="TestObject.js"></script>
 <script type="text/javascript">
-　document.write("這是測試網頁內容<br>");
-　//global CpickDomino;
-　var testClass = new CpickDomino(3);
-　document.write(testClass.testVal+"<br>");
-　document.write(testClass.testVal2+"<br>");
-　var getTestVal5=testClass.testFunction1();
-　document.write(getTestVal5+"<br>");
+$(document).ready(function(){
+    var count =15;
+  $("button").click(function(){
+      
+      var testClass = new TestObject(count);
+      var getTestVal5=testClass.testFunction1();
+      var strAnswer = "<br>值1："+testClass.testVal+"<br>值2："+testClass.testVal2+"<br>值5："+getTestVal5;
+    $("p").html(strAnswer);
+        count=count+3;
+    $("h4").html("<br>count："+count);
+  });
+});
+　
 　
 </script>
 </head>
 <body>
-
+<p>還沒有資料</p>
+<h4></h4>
+<button>點我+3</button>
 </body>
 </html>
