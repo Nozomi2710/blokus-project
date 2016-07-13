@@ -21,5 +21,5 @@ EX：<br>
 　邊已經重疊<br>
 <br>
 進度清單：<br>
-<br>
+2016/07/13更新<br>
 <img src="http://i.imgur.com/oS8y1Jg.png"></img>
