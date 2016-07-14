@@ -30,17 +30,40 @@ body {
   position: absolute;
 }
 #canvasPickField{
-  right:0px;
+ 
+  background-color: #ACD6FF;
 }/*暫時定義在右方，之後校正的時候要定義z-index*/
+#canvasChessBoard{
+  left: 6%;
+  background-color: #C4E1E1;
+}
+#canvasMoveDomino{
+  left: 6%;
+}
 .msgBox{
   position: fixed;
   bottom: 0px;
-  left: 5%;
+  left: 6%;
   background-color: #ffffff;
-  width: 50%;
+  width: 610px;
   height: 10%;
   
 }/*訊息視窗*/
+.gameTitle{
+  width: 350px;
+}
+.canvasGroup-left{
+  width: 600px;
+}
+.canvasGroup-right{
+  position: absolute;
+  right: 20%;
+  width: 270px;
+}
+#canvasPickedDomino{
+  background-color: #FFFFDF;
+  
+}
 /******************↑使用者自定義在上方****************/
 
 
