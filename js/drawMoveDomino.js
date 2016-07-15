@@ -32,13 +32,10 @@ var drawMoveDomino = function(canvasIn,deltaIn,maxWidthIn,maxHeightIn,colorIn){
 }
 drawMoveDomino.prototype ={
      start :function(direction,turn){
-         
-         
-         
-    if(turn=="NONE")
-       moveDomino(direction);
-    else if(turn!="NONE")
-       turnDomino(turn);
+        if(turn=="NONE")
+        moveDomino(direction);
+        else if(turn!="NONE")
+        turnDomino(turn);
          
          
          
@@ -106,6 +103,11 @@ drawMoveDomino.prototype ={
          }
           moveDirect=turnDirect;  
         }
-     }
+     },
+     getDominoInfo : function(){
+         var putInfo;
+         putInfo=[x,y,minoInfo[moveDirect]];
+         return putInfo;
+         }
     
 }

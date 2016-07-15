@@ -42,4 +42,20 @@ function drawPickField(){
     }
     context.stroke();
 }
-  
+
+function putDomino(minoInfo,color){
+    var chessBoard = $("#canvasChessBoard")[0];
+    var context = chessBoard.getContext('2d');
+    var x=minoInfo[0];
+    var y=minoInfo[1];
+    for(var i=1;i<=minoInfo[2][0];i++){
+            context.fillStyle=color;
+            context.fillRect(
+                x+minoInfo[2][i].x*20,
+                y+minoInfo[2][i].y*20,
+                minoInfo[2][i].w*20,
+                minoInfo[2][i].h*20);
+         }
+    
+    
+}

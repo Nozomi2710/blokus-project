@@ -20,11 +20,17 @@ $(document).ready( function(){
     var moveDomino = new drawMoveDomino(canvasObj,delta,600,600,"red");
     var dominoMove = 'NONE';
     var dominoTurn = 'NONE';
+    var dominoPut = 'NONE';
     var moveLoop;
-    
+    var dominoInfo;
   /*待整理*/
     function animate(){
       canvasObj.clearRect(0,0,canvas.width,canvas.height);
+      if(dominoPut != 'NONE'){
+      dominoInfo = moveDomino.getDominoInfo();
+      putDomino(dominoInfo,"blue");
+      }
+      else
       moveDomino.start(dominoMove,dominoTurn);
      
     }
@@ -32,7 +38,7 @@ $(document).ready( function(){
     function startGame(){
             
 
-            moveLoop = setInterval(animate,80);
+            moveLoop = setInterval(animate,85);
 
             // Start Tracking Keystokes
             $(document).keydown(function(evt) {
@@ -53,6 +59,9 @@ $(document).ready( function(){
                 else if (evt.keyCode == 65){
                     dominoTurn = 'turnAntiClock';
                 }
+                else if (evt.keyCode == 32){
+                    dominoPut = 'Try';
+                }
             });         
 
             $(document).keyup(function(evt) {
@@ -68,6 +77,8 @@ $(document).ready( function(){
                     dominoTurn = 'NONE';
                 }else if (evt.keyCode == 65){
                     dominoTurn = 'NONE';
+                }else if (evt.keyCode == 32){
+                    dominoPut = 'NONE';
                 }
             }); 
         }
