@@ -11,10 +11,50 @@
 <script>
 $(document).ready( function(){
     drawChessBoard();
-    var testDraw = new drawMoveDomino();
-    var canvas=$("#canvasPickedDomino")[0];
+    var canvas=$("#canvasMoveDomino")[0];
     var canvasObj = canvas.getContext('2d');
-    testDraw.turnDomino(canvasObj,40);
+    var delta=20;
+    var moveDomino = new drawMoveDomino(canvasObj,delta,600,600);
+    
+    var dominoMove = 'NONE';
+    var moveLoop;
+    function animate(){
+      canvasObj.clearRect(0,0,canvas.width,canvas.height);
+      moveDomino.moveDomino(dominoMove);
+    }
+    function startGame(){
+            
+
+            moveLoop = setInterval(animate,50);
+
+            // Start Tracking Keystokes
+            $(document).keydown(function(evt) {
+                if (evt.keyCode == 39) {
+                    dominoMove = 'Right';
+                } else if (evt.keyCode == 37){
+                    dominoMove = 'Left';
+                }
+                else if (evt.keyCode == 38){
+                    dominoMove = 'Up';
+                }
+                else if (evt.keyCode == 40){
+                    dominoMove = 'Down';
+                }
+            });         
+
+            $(document).keyup(function(evt) {
+                if (evt.keyCode == 39) {
+                    dominoMove = 'NONE';
+                } else if (evt.keyCode == 37){
+                    dominoMove = 'NONE';
+                }else if (evt.keyCode == 38){
+                    dominoMove = 'NONE';
+                }else if (evt.keyCode == 40){
+                    dominoMove = 'NONE';
+                }
+            }); 
+        }
+    startGame();
     
 });
 </script>
