@@ -6,10 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="js/drawZindex_0.js"></script>
+<script src="js/drawMoveDomino.js"></script>
 <script src="js/jquery.js"></script>
 <script>
 $(document).ready( function(){
     drawChessBoard();
+    var testDraw = new drawMoveDomino();
+    var canvas=$("#canvasPickedDomino")[0];
+    var canvasObj = canvas.getContext('2d');
+    testDraw.turnDomino(canvasObj,40);
+    
 });
 </script>
 <script src="bootstrap/js/bootstrap.js"></script>
