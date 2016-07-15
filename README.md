@@ -28,4 +28,5 @@ EX：<br>
 *老師建議先把主要的內容做完再處理socket<br>
 *故項目中的socket向後順延，0715進度更改為繪圖物件執行<br>
 *
+<a href="http://imgur.com/a/KomHc">0715進度紀錄(截圖)</a><br>
 <img src="http://i.imgur.com/oS8y1Jg.png"></img>
