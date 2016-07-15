@@ -10,22 +10,29 @@
 <script src="js/jquery.js"></script>
 <script>
 $(document).ready( function(){
+  /*init*/
     drawChessBoard();
     var canvas=$("#canvasMoveDomino")[0];
     var canvasObj = canvas.getContext('2d');
-    var delta=20;
-    var moveDomino = new drawMoveDomino(canvasObj,delta,600,600);
     
+  /*objVal*/  
+    var delta=20;
+    var moveDomino = new drawMoveDomino(canvasObj,delta,600,600,"red");
     var dominoMove = 'NONE';
+    var dominoTurn = 'NONE';
     var moveLoop;
+    
+  /*待整理*/
     function animate(){
       canvasObj.clearRect(0,0,canvas.width,canvas.height);
-      moveDomino.moveDomino(dominoMove);
+      moveDomino.start(dominoMove,dominoTurn);
+     
     }
+    
     function startGame(){
             
 
-            moveLoop = setInterval(animate,50);
+            moveLoop = setInterval(animate,80);
 
             // Start Tracking Keystokes
             $(document).keydown(function(evt) {
@@ -40,6 +47,12 @@ $(document).ready( function(){
                 else if (evt.keyCode == 40){
                     dominoMove = 'Down';
                 }
+                else if (evt.keyCode == 68){
+                    dominoTurn = 'turnClock';
+                }
+                else if (evt.keyCode == 65){
+                    dominoTurn = 'turnAntiClock';
+                }
             });         
 
             $(document).keyup(function(evt) {
@@ -51,6 +64,10 @@ $(document).ready( function(){
                     dominoMove = 'NONE';
                 }else if (evt.keyCode == 40){
                     dominoMove = 'NONE';
+                }else if (evt.keyCode == 68){
+                    dominoTurn = 'NONE';
+                }else if (evt.keyCode == 65){
+                    dominoTurn = 'NONE';
                 }
             }); 
         }
