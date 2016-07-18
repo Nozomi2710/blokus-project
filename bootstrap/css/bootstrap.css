@@ -47,7 +47,7 @@ body {
   background-color: #ffffff;
   width: 610px;
   height: 10%;
-  
+  z-index: 3;
 }/*訊息視窗*/
 .gameTitle{
   width: 350px;
@@ -57,7 +57,7 @@ body {
 }
 .canvasGroup-right{
   position: absolute;
-  right: 20%;
+  left: 60%;
   width: 270px;
 }
 #canvasPickedDomino{

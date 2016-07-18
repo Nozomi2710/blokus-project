@@ -12,12 +12,13 @@
 $(document).ready( function(){
   /*init*/
     drawChessBoard();
+    drawPickField();
     var canvas=$("#canvasMoveDomino")[0];
     var canvasObj = canvas.getContext('2d');
     
   /*objVal*/  
-    var delta=20;
-    var moveDomino = new drawMoveDomino(canvasObj,delta,600,600,"red");
+    var delta=25;
+    var moveDomino = new drawMoveDomino(canvasObj,delta,500,500,"red");
     var dominoMove = 'NONE';
     var dominoTurn = 'NONE';
     var dominoPut = 'NONE';
@@ -38,7 +39,7 @@ $(document).ready( function(){
     function startGame(){
             
 
-            moveLoop = setInterval(animate,85);
+            moveLoop = setInterval(animate,82);
 
             // Start Tracking Keystokes
             $(document).keydown(function(evt) {
@@ -107,18 +108,20 @@ $(document).ready( function(){
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">首頁<span class="sr-only">(current)</span></a></li>
-        <li><a href="gameRoom.html">遊戲-Blokus！</a></li>
-        <li><a href="#">遊戲-Blendoku！</a></li>
+        <li><a href="./">首頁</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              下拉式選單 <span class="caret"></span></a>
+              關於 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Separated link</a></li>
+            <li><a href="introduction_Blokus.html">介紹-Blokus！</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="introduction_Blendoku.html">介紹-Blendoku！</a></li>
           </ul>
         </li>
+        <li class="active"><a href="gameRoom_Blokus.html">遊戲-Blokus！<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">遊戲-Blendoku！(暫不開放)</a></li>
+        <li><a href="account.html">註冊/登入</a></li>
+        
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -127,14 +130,14 @@ $(document).ready( function(){
         <button type="submit" class="btn btn-default">查詢玩家</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">製作過程</a></li>
+        <li><a href="course.html">製作過程</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-             其他選單<span class="caret"></span></a>
+             回報/聯絡<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Something else here</a></li>
+            <li><a href="feedback.html">回報錯誤</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="contact.html">聯絡方式</a></li>
           </ul>
         </li>
       </ul>
@@ -144,20 +147,20 @@ $(document).ready( function(){
 <div class="container">
 <h1>Blokus！</h1>
 <div class="canvasGroup-left">
-<canvas class="canvasGroup" id="canvasChessBoard" width="600" height="600" style="z-index : 0"></canvas>
-<canvas class="canvasGroup" id="canvasMoveDomino" width="600" height="600" style="z-index : 1"></canvas>
+<canvas class="canvasGroup" id="canvasChessBoard" width="500" height="500" style="z-index : 0"></canvas>
+<canvas class="canvasGroup" id="canvasMoveDomino" width="500" height="500" style="z-index : 1"></canvas>
 </div>
 <div class="canvasGroup-right" style="z-index : 1">
 <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">Panel title</h3>
             </div>
-            <div class="panel-body" style="height:180px;">
+            <div class="panel-body" style="height:15%;">
               Panel content
             </div>
           </div>
 <canvas class="canvasGroup" id="canvasPickField"  width="270" height="480" style="z-index : 0"></canvas>
-<canvas class="canvasGroup" id="canvasPickedDomino"  width="80" height="80" style="z-index : 1"></canvas>
+<canvas class="canvasGroup" id="canvasPickedDomino"  width="85" height="115" style="z-index : 1"></canvas>
 </div>
 
 <div class="msgBox">

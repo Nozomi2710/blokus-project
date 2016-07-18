@@ -8,14 +8,14 @@ function drawChessBoard(){
     context.lineWidth=1;
     context.strokeStyle ="#408080";
     /****************縱向*****************/
-    for(x=0;x<=600;x+=20){
+    for(x=0;x<=500;x+=25){
     context.moveTo(x,0);
-    context.lineTo(x,600);
+    context.lineTo(x,500);
     }
     /****************橫向*****************/
-    for(y=0;y<=600;y+=20){
+    for(y=0;y<=500;y+=25){
     context.moveTo(0,y);
-    context.lineTo(600,y);
+    context.lineTo(500,y);
     }
     context.stroke();
     
@@ -31,14 +31,14 @@ function drawPickField(){
     context.lineWidth=1;
     context.strokeStyle ="#408080";
     /****************縱向*****************/
-    for(x=0;x<=270;x+=20){
+    for(x=0;x<=270;x+=90){
     context.moveTo(x,0);
-    context.lineTo(x,600);
+    context.lineTo(x,480);
     }
     /****************橫向*****************/
-    for(y=0;y<=600;y+=20){
+    for(y=0;y<=480;y+=60){
     context.moveTo(0,y);
-    context.lineTo(600,y);
+    context.lineTo(480,y);
     }
     context.stroke();
 }
@@ -51,10 +51,10 @@ function putDomino(minoInfo,color){
     for(var i=1;i<=minoInfo[2][0];i++){
             context.fillStyle=color;
             context.fillRect(
-                x+minoInfo[2][i].x*20,
-                y+minoInfo[2][i].y*20,
-                minoInfo[2][i].w*20,
-                minoInfo[2][i].h*20);
+                x+minoInfo[2][i].x*30,
+                y+minoInfo[2][i].y*30,
+                minoInfo[2][i].w*30,
+                minoInfo[2][i].h*30);
          }
     
     
