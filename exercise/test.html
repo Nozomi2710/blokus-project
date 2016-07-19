@@ -1,19 +1,54 @@
 <!DOCTYPE html>
+<html lang="zh">
 <head>
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-</head>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Hello world from Cloud9!</title>
-    </head>
+    <meta charset="utf-8" />
+    <title>Hello world from Cloud9!</title>
+<script src="../js/jquery.js"></script>
+<script>
+$(document).ready(function(){
+    var strAnswer ="瀏覽器不支援 SSE，使用傳統的 xhr polling";
+    if (!!window.EventSource) {
+         strAnswer="瀏覽器支援 SSE";
+         var source = new EventSource('stream.php');
+         $(".test1").html(strAnswer);
+         
+         
+    source.addEventListener('message', function(e) {
+                console.log(e.data);
+                strAnswer="連線已建立A";
+                $(".test2").html(strAnswer+"<br>資料變化："+e.data);
+    }, false);
+    source.addEventListener('open', function(e) {
+                strAnswer="連線已建立B";
+                $(".test3").html(strAnswer);
+    }, false);
+
+    source.addEventListener('error', function(e) {
+            if (e.readyState == EventSource.CLOSED) {
+                strAnswer="連線錯誤";
+                $(".test4").html(strAnswer);
+                }
+    }, false);
     
+    
+    } else {
+         $("p").html(strAnswer);
+            }
+            
+    
+   
+});
+</script>
+</head>
+
+
     <body>
         <h1>Hello world!</h1>
-        <p class="tagline">From Cloud9 IDE!</p>
+        <p class="test1">From Cloud9 IDE!</p>
+        <p class="test2">From Cloud9 IDE!</p>
+        <p class="test3">From Cloud9 IDE!</p>
+        <p class="test4">From Cloud9 IDE!</p>
         
-        <!-- load scripts at the bottom of your page -->
-        <script src="site.js"></script>
+       
     </body>
 </html>

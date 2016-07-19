@@ -5,7 +5,7 @@
 <title>帳號活動</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<script src="js/jquery.js"></script>
+<script src="view/jquery.js"></script>
 <!--少了jquery超要命的-->
 <script src="bootstrap/js/bootstrap.js"></script>
 </head>
@@ -42,7 +42,7 @@
         <li  class="active"><a href="account.html">登入/註冊<span class="sr-only">(current)</span></a></li>
         
       </ul>
-      <form class="navbar-form navbar-left" role="search" action="php/search.php" method="get" name="searchForm">
+      <form class="navbar-form navbar-left" role="search" action="control/search.php" method="get" name="searchForm">
         <div class="form-group">
           <input type="text" class="form-control" name="account" 
                  placeholder="輸入6-20字英數組合帳號" size="20" 
@@ -76,7 +76,7 @@
              </div>
              <div class="panel-body">
              
-             <form class="form-horizontal" role="form" name="loginForm" action="php/login.php" method="post">
+             <form class="form-horizontal" role="form" name="loginForm" action="control/login.php" method="post">
              <div class="form-group">
                  
                     <label class="col-sm-3 control-label">帳號：</label>
@@ -123,7 +123,8 @@
                 <ol>
                     <li>請勿惡意攻擊(會被版主詛咒喔)</li><br>
                     <li>可以重複申請帳號，<br>但是沒有帳號合併功能</li><br>
-                    <li>不要催促版主進度，版主會崩潰Q^Q</li><br>
+                    <s><li>不要催促版主進度，版主會崩潰Q^Q</li></s><br>
+                    <li>不用擔心，版主已經崩潰了</li><br>
                     </ol></h4>
             </div>
             <!--註冊條約-->

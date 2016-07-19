@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>忘記帳號/密碼</title>
+<title>聯絡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="view/jquery.js"></script>
@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Nozomi</a>
+      <a class="navbar-brand active" href="#">Nozomi</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,7 +39,7 @@
         </li>
         <li><a href="gameRoom_Blokus.html">遊戲-Blokus！</a></li>
         <li><a href="#">遊戲-Blendoku！(暫不開放)</a></li>
-        <li class="active"><a href="account.html">登入/註冊<span class="sr-only">(current)</span></a></li>
+        <li><a href="account.html">登入/註冊</a></li>
         
       </ul>
       <form class="navbar-form navbar-left" role="search" action="control/search.php" method="get" name="searchForm">
@@ -66,49 +66,19 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-<div class="page-header">
-        <h1>Nozomi與小遊戲→ <span class="label label-info">找回密碼</span></h1>
-      </div>
-<div class="col-sm-8 col-sm-offset-2">
-    <!--用offset來調整位置，雖然網路上有人會嫌麻煩，但是這樣讓我覺得方便了一點-->
-          <div class="panel panel-info">
-            <div class="panel-heading text-centet">
-              <h3 class="panel-title">找回密碼</h3>
-            </div>
-            <div class="panel-body">
-              <form class="form-horizontal" role="form" name="findForm" action="control/findInfo.php" method="post">
-             <div class="form-group">
-                 
-                    <label class="col-sm-3 control-label">帳號：</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="userID" 
-                               placeholder="輸入6-20字英數組合帳號" size="20" 
-                               pattern="[A-Za-z0-9]{6,20}" required="true"/>
-                    </div>
-                    </div>           
-             
-             <div class="form-group">      
-                    <label class="col-sm-3 control-label">E-mail：</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" name="userEmail" 
-                               placeholder="text1234@domain.com" required="true"/>
-                    </div>
-             </div>
-             <div class="col-sm-8 col-sm-offset-3" align="center">      
-                 
-                <button type="submit" name="findOK" value="1" class="btn btn-danger btn-lg">
-                <strong>重設密碼</strong>
-                </button>
-                
-                <button type="button" class="btn btn-info btn-lg" onclick="javascript:location.href='./account.html'">
-                <strong>回登入頁面</strong>
-                </button>
-                
-             </div>
-             </form>
-            </div>
-          </div>
-</div>
+<?php 
+require('model/modelClass.php');
 
+
+$testmodel = new model();
+$userId="16";
+$fbType="unset";
+$fbSubType="unset";
+$fbTitle="測試標題QAQ#2";
+$fbContent="測試內文#2";
+$testmodel->addFeedback($userId,$fbType,$fbSubType,$fbTitle,$fbContent);
+
+?>
+</div>
 </body>
 </html>
