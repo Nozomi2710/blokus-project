@@ -74,7 +74,7 @@ $testmodel = new controller($none,"stuff24",md5($PWD));
 echo $testmodel->userArray['userAccount'];
 echo "<br>".$testmodel->userstatus;
 $testArray=array(1,6,7);
-echo "<br>".$testmodel->command("search",8,6,7,6);
+echo "<br>".$testmodel->command("search",8,6,7,6);//放參數放爽爽
 ?>
 </div>
 </body>

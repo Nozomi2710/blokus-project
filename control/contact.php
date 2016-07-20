@@ -14,9 +14,9 @@ $ctSubType   = $_POST['ctSubType'];
 $ctTitle     = $_POST['ctTitle'];
 $ctContent   = $_POST['ctContent'];
 $ctOk        = $_POST['ctOk'];
-
+$fbCorF="C";
 $testInto=new Model();
-$anser=$testInto->addFeedback($userAccount,$ctType,$ctSubType,$ctTitle,$ctContent);
+$anser=$testInto->addFeedback($fbCorF,$userAccount,$ctType,$ctSubType,$ctTitle,$ctContent);
 if($anser==1)
 {
     echo "<br>".$userAccount;

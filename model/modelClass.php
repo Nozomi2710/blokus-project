@@ -134,11 +134,11 @@ class model{
         return $resultU;/*UPDATE的回傳值是修正筆數，但是因為使用者權限只能修改自己的資料，故使用回傳值來區分成功與否*/
     }
     
-    function addFeedback($userId,$fbType,$fbSubType,$fbTitle,$fbContent){
+    function addFeedback($fbCorF,$userId,$fbType,$fbSubType,$fbTitle,$fbContent){
         $dateTime = date("Y-m-d H:i:s");
         $sqlI="INSERT INTO `blokus_userFeedBack`
-                (`userId`, `fbType`, `fbSubType`, `fbTitle`, `fbContent`, `fbDateTime`) 
-        VALUES  ('$userId','$fbType','$fbSubType','$fbTitle','$fbContent','$dateTime')";
+                (`fbCorF`,`userId`, `fbType`, `fbSubType`, `fbTitle`, `fbContent`, `fbDateTime`) 
+        VALUES  ('$fbCorF','$userId','$fbType','$fbSubType','$fbTitle','$fbContent','$dateTime')";
         $result = $this->_myconn->query($sqlI);
         
         return $result;

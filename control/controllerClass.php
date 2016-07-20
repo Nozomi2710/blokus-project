@@ -68,6 +68,7 @@ class controller{
         //記得把事件紀錄下來
     }
     /**********************to message 然後重導網頁***********************/
+    //這一區可以放心return
     function signUp(){
         
     }//註冊
