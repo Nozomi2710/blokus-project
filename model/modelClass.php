@@ -1,10 +1,36 @@
 <?php
 require('init.php');
-date_default_timezone_set("Asia/Taipei");
+date_default_timezone_set("Asia/Taipei");//設定時區，c9的伺服器還是不要亂改設定會比較好
+
+/*
+
+
+function:
+
+__construct()建立連線
+
+新增使用者
+    // addUser($userAccount,$userName,$userPWD_MD5,$userEmail)
+取得使用者(本人$self=true)資訊
+    // getUserInfo($userAccount,$self)
+第一次登入新建遊戲Id($userId=false時撈資料重建)
+    // getGameId($userAccount,$userId)
+修改使用者(本人)資料
+    // editUserInfo($userArray)
+填寫回饋單
+    // addFeedback($userId,$fbType,$fbSubType,$fbTitle,$fbContent)
+使用者登入
+    // userLogin($userAccount,$userPWD)
+
+__destruct()斷開連線
+
+*/
+
+
+
 class model{
+    
     protected $_myconn=0;
-    
-    
     
     function __construct(){
         global $blokusServer,$blokusUser,$blokusPWD,$blokusDB;//調用全域變數
@@ -18,6 +44,10 @@ class model{
         $this->_myconn = $myconn;
         
     }
+    
+    function __destruct(){
+        $this->_myconn->close();
+    }//有空記得寫資料(?
     
     function addUser($userAccount,$userName,$userPWD_MD5,$userEmail){
         
@@ -90,7 +120,7 @@ class model{
     }
     
     
-    function setUserInfo($userArray){
+    function editUserInfo($userArray){
         
         $userName  = $anserArray['userName'];
         $userId    = $anserArray['$userId'];
@@ -109,17 +139,17 @@ class model{
         $sqlI="INSERT INTO `blokus_userFeedBack`
                 (`userId`, `fbType`, `fbSubType`, `fbTitle`, `fbContent`, `fbDateTime`) 
         VALUES  ('$userId','$fbType','$fbSubType','$fbTitle','$fbContent','$dateTime')";
-        $resultI = $this->_myconn->query($sqlI);
+        $result = $this->_myconn->query($sqlI);
         
-        return $resultI;
+        return $result;
     }//這裡的userId是數字，不是userAccount
     
     function userLogin($userAccount,$userPWD){
         
         $sqlS="SELECT userId,gameId FROM blokus_userInfo WHERE `userAccount` = '$userAccount' AND `userPassWord` = '$userPWD' ";
-        $resultS = $this->_myconn->query($sqlS);
-        if(mysqli_num_rows($resultS)==1){
-            $answerArray = mysqli_fetch_array($resultS);
+        $result = $this->_myconn->query($sqlS);
+        if(mysqli_num_rows($result)==1){
+            $answerArray = mysqli_fetch_array($result);
             
             if($answerArray['gameId']=='none')
                 $answerArray['gameId']=$this->getGameId($userAccount,$answerArray['userId']);
@@ -128,11 +158,11 @@ class model{
             
             return $answerArray;
         }
-        else if(mysqli_num_rows($resultS)<=1)
+        else if(mysqli_num_rows($result)<=1)
         return false;
         else
-        return "unknown fail!";/*還沒有檢查bug*/
-    }
+        return "unknown fail!";
+    }//test down
     
     
     

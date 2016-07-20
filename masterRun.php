@@ -71,13 +71,14 @@ require('model/modelClass.php');
 
 
 $testmodel = new model();
-$userId="16";
-$fbType="unset";
-$fbSubType="unset";
-$fbTitle="測試標題QAQ#2";
-$fbContent="測試內文#2";
-$testmodel->addFeedback($userId,$fbType,$fbSubType,$fbTitle,$fbContent);
+$userAccount="stuff16";
+$userPWD="password";
+$userPWD=md5($userPWD);
+$getArray=$testmodel->userLogin($userAccount,$userPWD);
 
+echo "<br>".$getArray['userId'];
+echo "<br>".$getArray['gameId'];
+echo "<br>".$getArray['userAccount'];
 ?>
 </div>
 </body>
