@@ -48,7 +48,7 @@
                  placeholder="輸入6-20字英數組合帳號" size="20" 
                  pattern="[A-Za-z0-9]{6,20}" required="true">
         </div>
-        <button name="btnOK" type="submit" class="btn btn-default">查詢玩家</button>
+        <button name="btnOK" type="submit" class="btn btn-default" value="true">查詢玩家</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="course.html">製作過程</a></li>
@@ -67,18 +67,14 @@
 </nav>
 <div class="container">
 <?php 
-require('model/modelClass.php');
-
-
-$testmodel = new model();
-$userAccount="stuff16";
-$userPWD="password";
-$userPWD=md5($userPWD);
-$getArray=$testmodel->userLogin($userAccount,$userPWD);
-
-echo "<br>".$getArray['userId'];
-echo "<br>".$getArray['gameId'];
-echo "<br>".$getArray['userAccount'];
+require('control/controllerClass.php');
+$PWD="password";
+$none="";
+$testmodel = new controller($none,"stuff24",md5($PWD));
+echo $testmodel->userArray['userAccount'];
+echo "<br>".$testmodel->userstatus;
+$testArray=array(1,6,7);
+echo "<br>".$testmodel->command("search",8,6,7,6);
 ?>
 </div>
 </body>
