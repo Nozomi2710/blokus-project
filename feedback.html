@@ -66,7 +66,77 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-
+<div class="page-header">
+        <h1>Nozomi與小遊戲→ <span class="label label-danger">回報錯誤</span></h1>
+      </div>
+<div class="col-sm-8 col-sm-offset-2">
+    
+          <div class="panel panel-danger">
+            <div class="panel-heading text-centet">
+              <h3 class="panel-title">回報錯誤</h3>
+            </div>
+            <div class="panel-body">
+            <form class="form-horizontal" role="form" name="feedbackForm" action="control/register.php" method="post">
+             <div class="form-group">
+                 
+                    <label class="col-sm-3 control-label" >帳號：</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="userAccount" 
+                               placeholder="輸入帳號" size="20" 
+                               required="true"/>
+                    </div>
+                    </div>           
+             <div class="form-group">       
+                    <label class="col-sm-3 control-label">錯誤類型：</label>
+                    <div class="col-sm-8">
+                        <select name-"fbType" class="form-control" required="true">
+                                          <option value="" selected="true" disabled="true">選擇類型：</option>
+                                          <!--done-->
+                                          <option value="game">遊戲</option>
+                                          <option value="view">視覺感覺</option>
+                                          <option value="member">會員功能</option>
+                                          <option value="other">其他</option>
+                                                      </select>
+                    </div>
+             </div>
+             <div class="form-group">   
+                    <label class="col-sm-3 control-label">選擇子類型：</label>
+                    <div class="col-sm-8">
+                         <select name-"fbSubType" class="form-control" required="true">
+                                          <option value="" selected="true" disabled="true">選擇類型：</option>
+                                          <!--done-->
+                                          <option value="">A</option>
+                                          <option value="">B</option>
+                                          <option value="">C</option>
+                                          <option value="">D</option>
+                                                      </select>
+                    </div>
+             </div>      
+             <div class="form-group">      
+                    <label class="col-sm-3 control-label">標題：</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="fbTitle" 
+                               placeholder="請輸入標題" required="true"/>
+                    </div>
+             </div>
+             <div class="form-group">      
+                    <label class="col-sm-3 control-label">內容敘述：</label>
+                    <div class="col-sm-8">
+                       <textarea name="fbContent" class="form-control" rows="8" 
+                       placeholder="請輸入你遇到的狀況QwQ"  required="true"></textarea>
+                    </div>
+             </div>
+             
+             <div class="col-sm-8 col-sm-offset-3" align="center">      
+                 
+                <button type="submit" name="fbOK" value="1" class="btn btn-warning btn-lg">
+                <strong>填寫完畢，回報錯誤</strong>
+                </button>
+              
+             </div>
+             </form>
+            </div>
+          </div>
 </div>
 </body>
 </html>

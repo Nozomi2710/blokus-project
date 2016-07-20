@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>聯絡</title>
+<title>站長測試頁</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="view/jquery.js"></script>

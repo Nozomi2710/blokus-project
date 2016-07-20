@@ -2630,7 +2630,7 @@ output {
 }
 .form-control:focus {
   border-color: #ffffff;
-  outline: 0;
+  /*outline: 0;這行決定input會不會有亮亮的邊*/
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 255, 255, 0.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 255, 255, 0.6);
 }
@@ -3967,7 +3967,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 1;
   color: #464545;
   text-align: center;
-  background-color: #464545;
+  background-color: #999999;
   border: 1px solid transparent;
   border-radius: 4px;
 }
