@@ -38,7 +38,7 @@
           </ul>
         </li>
         <li><a href="gameRoom_Blokus.html">遊戲-Blokus！</a></li>
-        <li><a href="#">遊戲-Blendoku！(暫不開放)</a></li>
+        
         <li><a href="account.html">登入/註冊</a></li>
         
       </ul>

@@ -1,7 +1,7 @@
 var canvasObj;//global variable才能被這串物件調用，如果單單只是宣告在主要物件中是沒辦法傳遞的，畢竟js並不是非常嚴謹的類別
 var delta,maxWidth,maxHeight,color;
-var x=150;
-var y=150;
+var x=120;
+var y=120;
 var minoInfo;
 var turnDirect=1,moveDirect=1;
 var width,height;

@@ -17,8 +17,8 @@ $(document).ready( function(){
     var canvasObj = canvas.getContext('2d');
     
   /*objVal*/  
-    var delta=25;
-    var moveDomino = new drawMoveDomino(canvasObj,delta,500,500,"red");
+    var delta=20;
+    var moveDomino = new drawMoveDomino(canvasObj,delta,400,400,"red");
     var dominoMove = 'NONE';
     var dominoTurn = 'NONE';
     var dominoPut = 'NONE';
@@ -119,7 +119,7 @@ $(document).ready( function(){
           </ul>
         </li>
         <li class="active"><a href="gameRoom_Blokus.html">遊戲-Blokus！<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">遊戲-Blendoku！(暫不開放)</a></li>
+        
         <li><a href="account.html">登入/註冊</a></li>
         
       </ul>
@@ -151,8 +151,8 @@ $(document).ready( function(){
         <h1>Nozomi與小遊戲→ <span class="label label-primary">Blokus！</span></h1>
       </div>
 <div class="col-sm-6 col-sm-offset-1">
-<canvas class="canvasGroup" id="canvasChessBoard" width="500" height="500" style="z-index : 0"></canvas>
-<canvas class="canvasGroup" id="canvasMoveDomino" width="500" height="500" style="z-index : 1"></canvas>
+<canvas class="canvasGroup" id="canvasChessBoard" width="400" height="400" style="z-index : 0"></canvas>
+<canvas class="canvasGroup" id="canvasMoveDomino" width="400" height="400" style="z-index : 1"></canvas>
 </div>
 <div class="col-sm-5" style="z-index : 1">
 <div class="panel panel-primary">
@@ -165,13 +165,9 @@ $(document).ready( function(){
               <br>
             </div>
           </div>
-<canvas class="canvasGroup" id="canvasPickField"  width="400" height="300" style="z-index : 0"></canvas>
-<canvas class="canvasGroup" id="canvasPickedDomino"  width="75" height="115" style="z-index : 1"></canvas>
+<canvas class="canvasGroup" id="canvasPickField"  width="300" height="200" style="z-index : 0"></canvas>
 </div>
 
-<div class="msgBox col-sm-offset-1">
-    
-</div>
 <!--遊戲畫面先註解-->
 </div>
 </body>

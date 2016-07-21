@@ -1,4 +1,4 @@
-var delta=25;
+var delta=20;
 
 function drawChessBoard(){
     var chessBoard = $("#canvasChessBoard")[0];
@@ -10,14 +10,14 @@ function drawChessBoard(){
     context.lineWidth=1;
     context.strokeStyle ="#408080";
     /****************縱向*****************/
-    for(x=0;x<=500;x+=delta){
+    for(x=0;x<=400;x+=delta){
     context.moveTo(x,0);
-    context.lineTo(x,500);
+    context.lineTo(x,400);
     }
     /****************橫向*****************/
-    for(y=0;y<=500;y+=delta){
+    for(y=0;y<=400;y+=delta){
     context.moveTo(0,y);
-    context.lineTo(500,y);
+    context.lineTo(400,y);
     }
     context.stroke();
     
@@ -33,14 +33,14 @@ function drawPickField(){
     context.lineWidth=1;
     context.strokeStyle ="#408080";
     /****************縱向*****************/
-    for(x=0;x<=400;x+=80){
+    for(x=0;x<=300;x+=60){
     context.moveTo(x,0);
-    context.lineTo(x,300);
+    context.lineTo(x,200);
     }
     /****************橫向*****************/
-    for(y=0;y<=300;y+=60){
+    for(y=0;y<=200;y+=40){
     context.moveTo(0,y);
-    context.lineTo(400,y);
+    context.lineTo(300,y);
     }
     context.stroke();
 }
