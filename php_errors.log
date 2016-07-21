@@ -4,3 +4,23 @@
 [20-Jul-2016 06:23:43 UTC] PHP Fatal error:  require(): Failed opening required 'model/modelClass.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/blokus/control/contact.php on line 2
 [20-Jul-2016 06:23:43 UTC] PHP Stack trace:
 [20-Jul-2016 06:23:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/contact.php:0
+[21-Jul-2016 07:26:06 UTC] PHP Warning:  curl_errno(): 2 is not a valid cURL handle resource in /home/ubuntu/workspace/blokus/exercise/curlA.php on line 35
+[21-Jul-2016 07:26:06 UTC] PHP Stack trace:
+[21-Jul-2016 07:26:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/exercise/curlA.php:0
+[21-Jul-2016 07:26:06 UTC] PHP   2. curl_errno() /home/ubuntu/workspace/blokus/exercise/curlA.php:35
+[21-Jul-2016 07:26:10 UTC] PHP Warning:  curl_errno(): 1 is not a valid cURL handle resource in /home/ubuntu/workspace/blokus/exercise/curlA.php on line 35
+[21-Jul-2016 07:26:10 UTC] PHP Stack trace:
+[21-Jul-2016 07:26:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/exercise/curlA.php:0
+[21-Jul-2016 07:26:10 UTC] PHP   2. curl_errno() /home/ubuntu/workspace/blokus/exercise/curlA.php:35
+[21-Jul-2016 07:28:24 UTC] PHP Warning:  curl_errno(): 2 is not a valid cURL handle resource in /home/ubuntu/workspace/blokus/exercise/curlA.php on line 35
+[21-Jul-2016 07:28:24 UTC] PHP Stack trace:
+[21-Jul-2016 07:28:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/exercise/curlA.php:0
+[21-Jul-2016 07:28:24 UTC] PHP   2. curl_errno() /home/ubuntu/workspace/blokus/exercise/curlA.php:35
+[21-Jul-2016 07:28:25 UTC] PHP Warning:  curl_errno(): 1 is not a valid cURL handle resource in /home/ubuntu/workspace/blokus/exercise/curlA.php on line 35
+[21-Jul-2016 07:28:25 UTC] PHP Stack trace:
+[21-Jul-2016 07:28:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/exercise/curlA.php:0
+[21-Jul-2016 07:28:25 UTC] PHP   2. curl_errno() /home/ubuntu/workspace/blokus/exercise/curlA.php:35
+[21-Jul-2016 07:28:28 UTC] PHP Warning:  curl_errno(): 1 is not a valid cURL handle resource in /home/ubuntu/workspace/blokus/exercise/curlA.php on line 35
+[21-Jul-2016 07:28:28 UTC] PHP Stack trace:
+[21-Jul-2016 07:28:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/exercise/curlA.php:0
+[21-Jul-2016 07:28:28 UTC] PHP   2. curl_errno() /home/ubuntu/workspace/blokus/exercise/curlA.php:35

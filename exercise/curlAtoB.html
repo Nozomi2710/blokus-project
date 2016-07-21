@@ -1,13 +1,30 @@
+
+
 <!DOCTYPE html >
 <html>
 <head>
 <meta charset="UTF-8">
 <title>站長測試頁</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<script src="view/jquery.js"></script>
+<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+<script src="../view/jquery.js"></script>
 <!--少了jquery超要命的-->
-<script src="bootstrap/js/bootstrap.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script>
+$.ajax({
+  url: "curlA.php",
+  type: "POST",
+  dataType: "",
+  success: function(Jdata) {
+    alert("SUCCESS!!!"+Jdata);
+  },
+  error: function() {
+    alert("ERROR!!!");
+  }
+});
+    
+</script>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -66,19 +83,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-<?php 
-require('control/controllerClass.php');
-$PWD="password";
-$none="";
-
-$testmodel = new controller($none,"stuff24",md5($PWD));
-
-
-
-echo "<br>登入成功，帳號是".$testmodel->userArray['userAccount'];
-echo "<br>目前狀態是：".$testmodel->userstatus;
-echo "<br>".$testmodel->command("search",8,6,7,6);//放參數放爽爽
-?>
+<p></p>
 </div>
 </body>
 </html>
