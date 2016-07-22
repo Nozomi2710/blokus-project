@@ -1,48 +1,29 @@
 /**
- * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	// Define changes to default configuration here.
-	// For complete reference see:
-	// http://docs.ckeditor.com/#!/api/CKEDITOR.config	
-	config.uiColor = '#EBEDD3';
-	config.height = 400;
-	config.width = 550;
-	config.resize_enabled = false; 
-	config.startupMode = 'wysiwyg';
-	config.enterMode = CKEDITOR.ENTER_BR;
-	config.forcePasteAsPlainText = true;
-	//config.toolbarCanCollapse = true;
-
-	// The toolbar groups arrangement, optimized for two toolbar rows.
-		config.toolbarGroups = [
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'links' },
-		{ name: 'insert' },
-		{ name: 'forms' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		//{ name: 'others' },
-		//'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		
-		{ name: 'colors' },
-		{ name: 'about' }
-		
-	];
-
-	// Remove some buttons provided by the standard plugins, which are
-	// not needed in the Standard(s) toolbar.
-	config.removeButtons = 'Underline,Subscript,Superscript';
-
-	// Set the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
-
-	// Simplify the dialog windows.
-	config.removeDialogTabs = 'image:advanced;link:advanced';
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+	config.extraPlugins = 'quicktable';
+	config.resize_enabled = false;
+	
+	config.toolbar = [
+       //['Source','-','Save','NewPage','Preview','-','Templates'],
+       ['Cut','Copy','Paste','PasteText','PasteFromWord'],
+       ['Undo','Redo','-','SelectAll','RemoveFormat'],//,'-','Find','Replace'尋找/取代
+       //['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],//表單選項
+       ['Link','Unlink'],
+       ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+       ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+       ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+       ['Table','HorizontalRule'],
+       ['TextColor','BGColor','FontSize'],//'Image',,'Smiley','SpecialChar','PageBreak'
+       ['Styles','Format','Font'],
+       
+       
+       //['Glyphicons','btquicktable']
+    ];
 };

@@ -71,14 +71,29 @@ require('control/controllerClass.php');
 $PWD="password";
 $none="";
 
-$testmodel = new controller($none,"stuff24",md5($PWD));
+$testmodel = new controller();
+echo "<br>userStatus=".$testmodel->userstatus."<br>";
+$userAccount="partCheck2";
+$userName="測試功能";
+$userPWD_MD5=md5("password");
+$userEmail="testuser@eamil.com";
 
-
-
-echo "<br>登入成功，帳號是".$testmodel->userArray['userAccount'];
-echo "<br>目前狀態是：".$testmodel->userstatus;
-echo "<br>".$testmodel->command("search",8,6,7,6);//放參數放爽爽
+// $result=$testmodel->command("signUp",$userAccount,$userName,$userPWD_MD5,$userEmail);//放參數放爽爽
+// if($result==true)
+// echo "<br>true";
+// else if($result==false)
+// echo "<br>false";
 ?>
+<script>
+  document.write(window.location.href);
+  function changeURL(){
+  var url = document.getElementById('url').value;
+  window.history.pushState({},0,'http://'+window.location.host+'/'+url); 
+  }
+ 
+  </script>
+        <input id='url' type="text" />
+        <button onclick="changeURL();">Change!</button>
 </div>
 </body>
 </html>
