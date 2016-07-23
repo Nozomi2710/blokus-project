@@ -1,4 +1,4 @@
-https://www.ptt.cc/bbs/PHP/M.1294844947.A.CF3.html
+﻿https://www.ptt.cc/bbs/PHP/M.1294844947.A.CF3.html
 Re: [請益] php跑判斷式的效能?
 
 https://www.ptt.cc/bbs/Soft_Job/M.1310923248.A.C43.html
@@ -10,3 +10,40 @@ http://people.cs.nctu.edu.tw/~chlo/web/docs/doc/data/programming/3.htm
  http://todarcy.com/2015/12/10/php%E4%B8%8Bswitch-case-%E5%92%8C-if-else%E6%95%88%E7%8E%87%E7%9A%84%E6%AF%94%E8%BE%83/
  感覺這個說的比較有道理
  
+/**********************網路*****************************/
+$arr = array('number' => '1020501', 'name' => '小傑', 'age' => 32, 'sex' => "M");
+
+echo json_encode($arr) . '<br>';
+
+/** 輸出：
+
+{"number":"1020501","name":"\u5c0f\u5091","age":32,"sex":"M"}
+ */
+
+// 原字串型態 '1020501' 會編碼成數值型態的 1020501 
+echo json_encode($arr, JSON_NUMERIC_CHECK);
+
+/** 輸出：
+
+{"number":1020501,"name":"\u5c0f\u5091","age":32,"sex":"M"}
+ */
+/*****************網路示範*************************/
+$json = '{
+    "number": "1020501",
+    "name": "小傑",
+    "age": 32,
+    "sex": "M",
+    "interest": [
+        "網頁設計",
+        "撰寫文章"
+    ]
+}';
+
+$obj = json_decode($json);
+
+echo '<pre>';
+	print_r($obj);
+echo '</pre>';
+/************************************************/
+//http://www.smalljacky.com/programming-language/php/php-json-teaching/
+//擁有MVC架構的教學

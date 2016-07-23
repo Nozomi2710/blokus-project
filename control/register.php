@@ -9,7 +9,7 @@ $userEmail=$_POST['userEmail']."@".$_POST['subuserEmail'];
 $signUp = new controller();
 $result = $signUp->command("signUp",$userAccount,$userName,md5($userPWD_MD5),$userEmail);
 if($result==true)
-header('Location:../message.html');
+header('Location:../message/userMessage.html?#1');
 else
-echo "fail!";
+header('Location:../message/userMessage.html?#2');
 ?>
