@@ -29,4 +29,5 @@ EX：<br>
 *故項目中的socket向後順延，0715進度更改為繪圖物件執行<br>
 *
 <a href="http://imgur.com/a/KomHc">0715進度紀錄(截圖)</a><br>
-<img src="http://i.imgur.com/oS8y1Jg.png"></img>
+<a href="http://i.imgur.com/oS8y1Jg.png">舊版進度紀錄(截圖)</a><br>
+星期天統一整理進度
