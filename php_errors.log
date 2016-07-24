@@ -56,3 +56,30 @@
 [22-Jul-2016 17:07:31 Asia/Taipei] PHP Fatal error:  Method name must be a string in /home/ubuntu/workspace/blokus/control/register.php on line 10
 [22-Jul-2016 17:07:31 Asia/Taipei] PHP Stack trace:
 [22-Jul-2016 17:07:31 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/register.php:0
+[24-Jul-2016 18:38:50 Asia/Taipei] PHP Fatal error:  Call to a member function command() on a non-object in /home/ubuntu/workspace/blokus/control/findInfoController.php on line 29
+[24-Jul-2016 18:38:50 Asia/Taipei] PHP Stack trace:
+[24-Jul-2016 18:38:50 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/findInfoController.php:0
+[24-Jul-2016 15:25:23 UTC] PHP Warning:  require(control/gameControllerClass.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/blokus/control/masterRun.php on line 70
+[24-Jul-2016 15:25:23 UTC] PHP Stack trace:
+[24-Jul-2016 15:25:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 15:25:23 UTC] PHP Fatal error:  require(): Failed opening required 'control/gameControllerClass.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/blokus/control/masterRun.php on line 70
+[24-Jul-2016 15:25:23 UTC] PHP Stack trace:
+[24-Jul-2016 15:25:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 15:27:44 UTC] PHP Warning:  require(/blokus/model/modelClass.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/blokus/control/gameControllerClass.php on line 2
+[24-Jul-2016 15:27:44 UTC] PHP Stack trace:
+[24-Jul-2016 15:27:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 15:27:44 UTC] PHP   2. require() /home/ubuntu/workspace/blokus/control/masterRun.php:70
+[24-Jul-2016 15:27:44 UTC] PHP Fatal error:  require(): Failed opening required '/blokus/model/modelClass.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/blokus/control/gameControllerClass.php on line 2
+[24-Jul-2016 15:27:44 UTC] PHP Stack trace:
+[24-Jul-2016 15:27:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 15:27:44 UTC] PHP   2. require() /home/ubuntu/workspace/blokus/control/masterRun.php:70
+[24-Jul-2016 23:28:23 Asia/Taipei] PHP Fatal error:  Cannot redeclare class model in /home/ubuntu/workspace/blokus/model/modelClass.php on line 42
+[24-Jul-2016 23:28:23 Asia/Taipei] PHP Stack trace:
+[24-Jul-2016 23:28:23 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 23:28:23 Asia/Taipei] PHP   2. require() /home/ubuntu/workspace/blokus/control/masterRun.php:70
+[24-Jul-2016 23:28:23 Asia/Taipei] PHP   3. require() /home/ubuntu/workspace/blokus/control/gameControllerClass.php:3
+[24-Jul-2016 23:31:41 Asia/Taipei] PHP Fatal error:  Cannot redeclare class model in /home/ubuntu/workspace/blokus/model/modelClass.php on line 42
+[24-Jul-2016 23:31:41 Asia/Taipei] PHP Stack trace:
+[24-Jul-2016 23:31:41 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/masterRun.php:0
+[24-Jul-2016 23:31:41 Asia/Taipei] PHP   2. require() /home/ubuntu/workspace/blokus/control/masterRun.php:70
+[24-Jul-2016 23:31:41 Asia/Taipei] PHP   3. require() /home/ubuntu/workspace/blokus/control/gameControllerClass.php:3

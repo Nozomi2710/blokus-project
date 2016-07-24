@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="view/jquery.js"></script>
+<script src="/blokus/view/statusView.js"></script>
+<script src="/blokus/view/formView.js"></script>
 <!--少了jquery超要命的-->
 <script src="bootstrap/js/bootstrap.js"></script>
 </head>
@@ -39,12 +41,12 @@
         </li>
         <li><a href="gameRoom_Blokus.html">遊戲-Blokus！</a></li>
         
-        <li class="active"><a href="account.html">登入/註冊<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="account.html" id="userStatus">登入/註冊<span class="sr-only">(current)</span></a></li>
         
       </ul>
       <form class="navbar-form navbar-left" role="search" action="control/search.php" method="get" name="searchForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="account" 
+          <input type="text" class="form-control" name="userAccount" 
                  placeholder="輸入6-20字英數組合帳號" size="20" 
                  pattern="[A-Za-z0-9]{6,20}" required="true">
         </div>
@@ -76,7 +78,7 @@
               <h3 class="panel-title">找回密碼</h3>
             </div>
             <div class="panel-body">
-              <form class="form-horizontal" role="form" name="findForm" action="control/findInfo.php" method="post">
+              <form class="form-horizontal" role="form" name="findForm" action="control/findInfoController.php" method="post">
              <div class="form-group">
                  
                     <label class="col-sm-3 control-label">帳號：</label>
@@ -90,7 +92,7 @@
              <div class="form-group">      
                     <label class="col-sm-3 control-label">E-mail：</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" name="userEmail" 
+                        <input type="email" class="form-control" name="userEmail" id="userEmail"
                                placeholder="text1234@domain.com" required="true"/>
                     </div>
              </div>

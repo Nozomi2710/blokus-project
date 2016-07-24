@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <title>訊息</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<meta name="controlToView" http-equiv="refresh" content="5;url=/blokus/" />
+<link href="/blokus/bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="/blokus/view/jquery.js"></script>
+<script src="systemMessage.js"></script>
+<script src="/blokus/view/statusView.js"></script>
 <!--少了jquery超要命的-->
 <script src="/blokus/bootstrap/js/bootstrap.js"></script>
 </head>
@@ -39,12 +42,12 @@
         </li>
         <li><a href="/blokus/gameRoom_Blokus.html">遊戲-Blokus！</a></li>
         
-        <li><a href="/blokus/account.html">登入/註冊</a></li>
+        <li><a href="/blokus/account.html" id="userStatus">登入/註冊</a></li>
         
       </ul>
       <form class="navbar-form navbar-left" role="search" action="control/search.php" method="get" name="searchForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="account" 
+          <input type="text" class="form-control" name="userAccount" 
                  placeholder="輸入6-20字英數組合帳號" size="20" 
                  pattern="[A-Za-z0-9]{6,20}" required="true">
         </div>

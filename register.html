@@ -8,6 +8,8 @@
 <script src="view/jquery.js"></script>
 <!--少了jquery超要命的-->
 <script src="bootstrap/js/bootstrap.js"></script>
+<script src="/blokus/view/statusView.js"></script>
+<script src="/blokus/view/formView.js"></script>
 <script>
 //驗證密碼
 
@@ -43,12 +45,12 @@
         </li>
         <li><a href="gameRoom_Blokus.html">遊戲-Blokus！</a></li>
        
-        <li class="active"><a href="account.html">登入/註冊<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="account.html" id="userStatus">登入/註冊<span class="sr-only">(current)</span></a></li>
         
       </ul>
       <form class="navbar-form navbar-left" role="search" action="control/search.php" method="get" name="searchForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="account" 
+          <input type="text" class="form-control" name="userAccount" 
                  placeholder="輸入6-20字英數組合帳號" size="20" 
                  pattern="[A-Za-z0-9]{6,20}" required="true">
         </div>
@@ -81,12 +83,12 @@
             </div>
             <div class="panel-body">
               <form class="form-horizontal focusedInput" role="form" name="registerForm" 
-              action="control/register.php" method="post">
+              action="control/registerController.php" method="post">
              <div class="form-group">
                  
                     <label class="col-sm-3 control-label" >帳號：</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="userAccount" 
+                        <input type="text" class="form-control" name="userAccount" id="userAccount"
                                placeholder="輸入6-20字英數組合帳號" size="20" 
                                pattern="[A-Za-z0-9]{6,20}" required="true"/>
                     </div>
@@ -94,7 +96,7 @@
              <div class="form-group">       
                     <label class="col-sm-3 control-label">密碼：</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" name="userPassWord" 
+                        <input type="password" class="form-control" name="userPassWord" id="userPassWord"
                                placeholder="輸入6-20字英數組合密碼" pattern="[A-Za-z0-9]{6,20}" size="20" 
                                required="true"/>
                     </div>
@@ -102,7 +104,7 @@
              <div class="form-group">   
                     <label class="col-sm-3 control-label">確認密碼：</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" name="checkPassWord" 
+                        <input type="password" class="form-control" name="checkPassWord" id="checkPassWord"
                                placeholder="請確認密碼" pattern="[A-Za-z0-9]{6,20}" size="20" 
                                required="true"/>
                     </div>

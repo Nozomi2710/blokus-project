@@ -34,7 +34,7 @@ class controller{
     public $userstatus='un-pass';
     protected $level='unset';
     protected $userAccount='unset';
-    private $userPassWord='unset';
+    protected $userPWD='unset';
     
     function __construct(){//0=status,1=Account,2=pwd
            $args = func_get_args();//要獲取所有參數不要忘記這個function!!
@@ -191,20 +191,27 @@ class controller{
         //$args結論還是會抓到第一個參數
         //07/22確認功能可用
         $addFb=new model();
-        
-        
-        $fbCorF=$args[1];
-        
-        if(isset($_SESSION['userId']))
-        $userId=$_SESSION['userId'];
-        else
+        $userAccount=$args[1];
+        $fbCorF=$args[2];
+        $fbType=$args[3];
+        $fbSubType=$args[4];
+        $fbTitle=$args[5];
+        $fbContent=$args[6];
+        if($userAccount!='incognito'){
+            if(isset($_SESSION['userId']))
+            $userId=$_SESSION['userId'];
+            
+            else if(!isset($_SESSION['userId'])){
+                $userId=$addFb->getuserId($userAccount);//未登入，但是填了帳號的情況下，去找到userId
+                    if($userId=='none'||$userId==false)
+                    $userAccount='incognito';//如果找不到帳號的情況，就讓它成為匿名
+                    //沒有else，如果結果正確，userId就還是userId，Account也還是Account
+            }
+        }
+        if($userAccount=='incognito'){
         $userId=999;
-        
-        $fbType=$args[2];
-        $fbSubType=$args[3];
-        $fbTitle=$args[4];
-        $fbContent=$args[5];
-        $result = $addFb->addFeedback($fbCorF,$userId,$fbType,$fbSubType,$fbTitle,$fbContent);
+        }
+        $result = $addFb->addFeedback($fbCorF,$userId,$userAccount,$fbType,$fbSubType,$fbTitle,$fbContent);
         return $result;
     }//回報/聯絡
     
@@ -214,8 +221,6 @@ class controller{
         $searchUser = new model();
         $result = $searchUser->immediatelySearch($userAccountPart);
         // 即時搜尋回傳的第一個陣列值是搜尋的結果數
-        echo "search part=".$args[1];
-        echo "<br>search result=".$result[0];
         return $result;
     }//搜尋玩家
     
@@ -241,7 +246,6 @@ class controller{
         return $result;
         
     }//搜尋送出
-    
     /*********************************************************************/
     // 
     // 

@@ -9,24 +9,28 @@ function:
 
 __construct()建立連線
 
+建立遊戲Id()
+    // getGameId($userAccount,$userId) return gameId/false/"none"
 新增使用者
     // addUser($userAccount,$userName,$userPWD_MD5,$userEmail)  return true/false
 取得使用者(本人$self=true)資訊
     // getUserInfo($userAccount,$self,$search) return userName,gameId,userEmail,score1,score2,score3
-建立遊戲Id()
-    // getGameId($userAccount,$userId) return gameId/false/"none"
-修改使用者(本人)資料
-    // editUserInfo($userId,$userName,$userEmail) return true/false
-填寫回饋單
-    // addFeedback($fbCorF,$userId,$fbType,$fbSubType,$fbTitle,$fbContent) return true/false
-使用者登入
-    // userLogin($userAccount,$userPWD) return userId/userAccount/userGameId
+即時搜尋
+    //immediatelySearch($userAccount) return Array/false
 使用者確認信箱
     // checkUserAccount($userAccount,$userEmail) return userId/false
 使用者修改密碼
     //resetPassWord($userId,$userPWD_MD5) return true/false
-即時搜尋
-    //immediatelySearch($userAccount) return Array/false
+取得使用者Id
+    //getuserId($userAccount) return userId/false
+修改使用者(本人)資料
+    // editUserInfo($userId,$userName,$userEmail) return true/false
+填寫回饋單
+    // addFeedback($fbCorF,$userId,$userAccount,$fbType,$fbSubType,$fbTitle,$fbContent) return true/false
+使用者登入
+    // userLogin($userAccount,$userPWD) return userId/userAccount/userGameId
+
+
 
 
 __destruct()斷開連線
@@ -52,10 +56,18 @@ class model{
         
     }
     
-    function __destruct(){
-        $this->_myconn->close();
-    }//有空記得寫資料(?
-    
+   
+    private function getGameId($userAccount,$userId){//gameID不會馬上產生，要在使用者進行第一次遊戲時才會產生
+        
+        $gameId = "blokus_".$userId;
+        
+        $sqlU="UPDATE blokus_userInfo SET `gameId` = '$gameId' WHERE `userAccount` = '$userAccount'";//‵變數`跟 '變數'是不一樣的
+        $resultU = $this->_myconn->query($sqlU);
+        if($resultU==1)
+        return $gameId;/*UPDATE的回傳值是修正筆數，但是因為使用者權限只能修改自己的資料，故使用回傳值來區分成功與否*/
+        else
+        return "none";
+    }
     function addUser($userAccount,$userName,$userPWD_MD5,$userEmail){
         
         $sqlI="INSERT blokus_userInfo (`userAccount`, `userName`, `userPassWord`, `userEmail`, `gameId`, `level`) 
@@ -70,8 +82,6 @@ class model{
         /*用法如上*/
         
     }
-    
-    
     function getUserInfo($userAccount,$self){//找到分數資料
         $userOwn="";
         
@@ -85,7 +95,15 @@ class model{
         
         $sqlGameInfo="SELECT scoreBest,scoreSBest,scoreThBest FROM blokus_gameInfo WHERE `gameId` = '$gameId' ";
         $resultGameInfo = $this->_myconn->query($sqlGameInfo);
+        $scoreArray="";
+        if(mysqli_num_rows($resultGameInfo)<1){
+        $scoreArray=array('scoreBest'=>0,'scoreSBest'=>0,'scoreThBest'=>0);
+        $sqlNewRecord="INSERT blokus_gameInfo VALUES ('$gameId', 0 , 0 , 0 )";
+        $this->_myconn->query($sqlNewRecord);
+        }
+        else if(mysqli_num_rows($resultGameInfo)==1)
         $scoreArray = mysqli_fetch_array($resultGameInfo);
+        
         $anserArray="";
         
         
@@ -108,12 +126,13 @@ class model{
         
         return $anserArray;
     }
-    
     function immediatelySearch($userAccount){
         $sqlS="SELECT userAccount FROM blokus_userInfo WHERE `userAccount` LIKE '$userAccount%' ";
         $resultS=$this->_myconn->query($sqlS);
-        if($resultS===false)
+        
+        if(mysqli_num_rows($resultS)<1||$resultS===false)
         return false;
+        
         else{
         $userRow[0]="";
         $i=1;
@@ -126,8 +145,6 @@ class model{
         return $userRow;
         }
     }
-    
-    
     function checkUserAccount($userAccount,$userEmail){
         $sqlS="SELECT userId FROM blokus_userInfo WHERE `userAccount` = '$userAccount' AND `userEmail` = '$userEmail' ";
         $resultS = $this->_myconn->query($sqlS);
@@ -135,7 +152,7 @@ class model{
         return false;
         else if(mysqli_num_rows($resultS)==1)
         {
-            $row=mysqli_fetch_row($resultS);
+            $row = mysqli_fetch_row($resultS);
             return $row[0];
         }
         
@@ -150,20 +167,21 @@ class model{
         return false;
         
     }
-    
-    private function getGameId($userAccount,$userId){//gameID不會馬上產生，要在使用者進行第一次遊戲時才會產生
+    function getuserId($userAccount){
         
-        $gameId = "blokus_".$userId;
-        
-        $sqlU="UPDATE blokus_userInfo SET `gameId` = '$gameId' WHERE `userAccount` = '$userAccount'";//‵變數`跟 '變數'是不一樣的
-        $resultU = $this->_myconn->query($sqlU);
-        if($resultU==1)
-        return $gameId;/*UPDATE的回傳值是修正筆數，但是因為使用者權限只能修改自己的資料，故使用回傳值來區分成功與否*/
+        $sqlS="SELECT userId FROM blokus_userInfo WHERE `userAccount` = '$userAccount' ";
+        $resultS = $this->_myconn->query($sqlS);
+        if(mysqli_num_rows($resultS)<1)
+            return false;
+        elseif(mysqli_num_rows($resultS)==1){
+            $getuserId = mysqli_fetch_array($resultS);
+            return $getuserId['userId'];
+        }
         else
-        return "none";
+            return "none";
+            
+        
     }
-    
-    
     function editUserInfo($userId,$userName,$userEmail){
         
         $sqlU="UPDATE blokus_userInfo SET `userName`= '$userName' ,`userEmail`= '$userEmail' WHERE `userId` ='$userId'";
@@ -173,17 +191,15 @@ class model{
         else if(mysqli_num_rows($result)==1)
         return true;/*UPDATE的回傳值是修正筆數，但是因為使用者權限只能修改自己的資料，故使用回傳值來區分成功與否*/
     }
-    
-    function addFeedback($fbCorF,$userId,$fbType,$fbSubType,$fbTitle,$fbContent){
+    function addFeedback($fbCorF,$userId,$userAccount,$fbType,$fbSubType,$fbTitle,$fbContent){
         $dateTime = date("Y-m-d H:i:s");
         $sqlI="INSERT INTO `blokus_userFeedBack`
-                (`fbCorF`,`userId`, `fbType`, `fbSubType`, `fbTitle`, `fbContent`, `fbDateTime`) 
-        VALUES  ('$fbCorF','$userId','$fbType','$fbSubType','$fbTitle','$fbContent','$dateTime')";
+                (`fbCorF`,`userId`,`userAccount`,`fbType`, `fbSubType`, `fbTitle`, `fbContent`, `fbDateTime`) 
+        VALUES  ('$fbCorF','$userId','$userAccount','$fbType','$fbSubType','$fbTitle','$fbContent','$dateTime')";
         $result = $this->_myconn->query($sqlI);
         
         return $result;
     }//這裡的userId是數字，不是userAccount
-    
     function userLogin($userAccount,$userPWD){
         
         $sqlS="SELECT userId,gameId FROM blokus_userInfo WHERE `userAccount` = '$userAccount' 
@@ -204,8 +220,15 @@ class model{
         else
         return "unknown fail!";
     }//test down
-    
-    
+    function rankScore(){
+        $sql="SELECT userAccount,userName,scoreBest FROM blokus_userInfo 
+              INNER JOIN blokus_gameInfo USING gameId ORDER BY scoreBest DESC,userName ASC";
+        $result = $this->_myconn->query($sqlS);
+        return $result;
+    }
+    function __destruct(){
+        $this->_myconn->close();
+    }
     
     
 }//class結束
