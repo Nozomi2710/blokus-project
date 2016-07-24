@@ -2,7 +2,7 @@ $(document).ready(function(){
     function userstatus(){
     $.ajax({
          url: '/blokus/control/statusController.php',
-         type:'GET',
+         type:'POST',
          dataType: "json",
          error: function(xhr) {
            alert('使用者狀態錯誤，系統自動登出');

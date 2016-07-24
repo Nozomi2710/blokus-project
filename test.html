@@ -6,29 +6,29 @@
 	<script>
 		
 		var messages = [];
- 
+		var oldmessage="";
 		// connect to the socket server
-		var chat_conn = new WebSocket('ws://nozomi271003.ddns.net:8080/blokus');
-		chat_conn.onopen = function(e) {
-			console.log('Connected to server:', chat_conn);
+		var _conn = new WebSocket('ws://nozomi271003.ddns.net:8080/blokus');
+		_conn.onopen = function(e) {
+			console.log('Connected to server:', _conn);
 		}
 		 
-		chat_conn.onerror = function(e) {
+		_conn.onerror = function(e) {
 			console.log('Error: Could not connect to server.');
 		}
 		 
-		chat_conn.onclose = function(e) {
+		_conn.onclose = function(e) {
 			console.log('Connection closed');
 		}
 		 
 		// handle new message received from the socket server
-		chat_conn.onmessage = function(e) {
+		_conn.onmessage = function(e) {
 			// message is data property of event object
 			var message = JSON.parse(e.data);
 			console.log('message', message);
-		 
+		 	oldmessage = oldmessage+message.text;
 			// add to message list
-			var li = '<li>' + message.text + '</li>';
+			var li = '<li>' + message.text + ' oldmessage:'+oldmessage+'</li>';
 			$('.message-list').append(li);
 		}
 		 
@@ -49,9 +49,10 @@
 		 
 				// clear the input
 				input.val('');
-		 
+		 		var li = '<li>' + message.text + ' oldmessage:'+oldmessage+'</li>';
+				$('.message-list').append(li);
 				// send message to server
-				chat_conn.send(JSON.stringify(message));
+				_conn.send(JSON.stringify(message));
 			});
 		});
 	
