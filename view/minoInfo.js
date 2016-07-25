@@ -118,7 +118,7 @@ function getMinoInfo(Num){
         minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
         
     }
-    else if(Num==17){
+    else if(Num==17){//5格P
         var total = [4,5];
         var minoTurn1 = [{x:0,y:0},{x:0,y:1},{x:1,y:0},{x:1,y:1},{x:0,y:2},{w:2,h:3}];
         var minoTurn2 = [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:1,y:1},{x:2,y:1},{w:3,h:2}];
@@ -126,18 +126,55 @@ function getMinoInfo(Num){
         var minoTurn4 = [{x:0,y:0},{x:0,y:1},{x:1,y:0},{x:1,y:1},{x:2,y:1},{w:3,h:2}];
         minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
     }
-    else if(Num==18){
-        
+    else if(Num==18){//5格U
+        var total = [4,5];
+        var minoTurn1 = [{x:0,y:0},{x:0,y:1},{x:1,y:1},{x:2,y:0},{x:2,y:1},{w:3,h:2}];
+        var minoTurn2 = [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:1,y:0},{x:1,y:2},{w:2,h:3}];
+        var minoTurn3 = [{x:0,y:0},{x:0,y:1},{x:1,y:0},{x:2,y:0},{x:2,y:1},{w:3,h:2}];
+        var minoTurn4 = [{x:0,y:0},{x:1,y:0},{x:1,y:1},{x:0,y:2},{x:1,y:2},{w:2,h:3}];
+        minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
     }
-    else if(Num==19){
-        
+    else if(Num==19){//5格X
+        var total = [1,5];
+        var minoTurn1 = [{x:1,y:0},{x:0,y:1},{x:1,y:1},{x:2,y:1},{x:1,y:2},{w:3,h:3}];
+        minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
     }
-    else if(Num==20){
-        
+    else if(Num==20){//5格Y
+        var total = [4,5];
+        var minoTurn1 = [{x:0,y:0},{x:0,y:1},{x:0,y:2},{x:0,y:3},{x:1,y:1},{w:2,h:4}];
+        var minoTurn2 = [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:2,y:1},{w:4,h:2}];
+        var minoTurn3 = [{x:0,y:2},{x:1,y:0},{x:1,y:1},{x:1,y:2},{x:1,y:3},{w:2,h:4}];
+        var minoTurn4 = [{x:1,y:0},{x:0,y:1},{x:1,y:1},{x:2,y:1},{x:3,y:1},{w:4,h:2}];
+        minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
     }
-    else if(Num==21){
-        
+    else if(Num==21){//5格W
+        var total = [4,5];
+        var minoTurn1 = [{x:0,y:0},{x:0,y:1},{x:1,y:1},{x:1,y:2},{x:2,y:2},{w:3,h:3}];
+        var minoTurn2 = [{x:0,y:1},{x:0,y:2},{x:1,y:0},{x:1,y:1},{x:2,y:0},{w:3,h:3}];
+        var minoTurn3 = [{x:0,y:0},{x:1,y:0},{x:1,y:1},{x:2,y:1},{x:2,y:2},{w:3,h:3}];
+        var minoTurn4 = [{x:0,y:2},{x:1,y:1},{x:1,y:2},{x:2,y:0},{x:2,y:1},{w:3,h:3}];
+        minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
     }
     return minoInfo;
     
 }
+
+function Init(color){
+    var chessBoardRow=new Array("-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-");
+    var chessBoard=new Array();
+    
+    for(var i=0;i<20;i++){
+      chessBoard[i]=chessBoardRow;
+    }
+        if(color=="red")
+        chessBoard[19][19]="O";
+        else if(color=="yellow")
+        chessBoard[19][0]="O";
+        else if(color=="blue")
+        chessBoard[0][0]="O";
+        else if(color=="green")
+        chessBoard[0][19]="O";
+        
+        return chessBoard;
+    
+    }

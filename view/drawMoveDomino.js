@@ -5,14 +5,6 @@ var y=6;//把座標改成目前的格數
 var turnDirect=1,moveDirect=1;
 var width,height;
 var drawMoveDomino = function(canvasIn,deltaIn,maxWidthIn,maxHeightIn,colorIn){
-    // minoName:拚片名稱/代號
-    // color:玩家顏色
-    // canvasObj:畫布物件
-    // chessStatus:棋盤數值
-    /*測試L1*/
-    
-    // minoName,color,,chessStatus
-        
     delta=deltaIn;//設定的變量
     canvasObj=canvasIn;//畫布物件
     maxWidth=maxWidthIn;//畫布寬
@@ -100,7 +92,7 @@ drawMoveDomino.prototype ={
             
             }
              },
-     getDominoInfo : function(){
+     getDominoInfo : function(minoInfo){
          var putInfo;
          putInfo=[x,y,minoInfo[0][1],minoInfo[moveDirect]];
          return putInfo;

@@ -25,14 +25,14 @@ $(document).ready(function(){
   function checkIncognito(){
       $("#incognito").change(function() {
         if(this.checked) {
-                 $("input[name=userAccount]").attr({
+                 $("#userAccount").attr({
                     value : 'incognito',
                     disabled : "disabled"
                  });
              }
         else{
-                 $("input[name=userAccount]").removeAttr('disabled');
-                 $("input[name=userAccount]").removeAttr('value');
+                 $("#userAccount").removeAttr('disabled');
+                 $("#userAccount").removeAttr('value');
                 
         }
         });

@@ -9,41 +9,17 @@
 <script src="view/drawMoveDomino.js"></script>
 <script src="view/minoInfo.js"></script>
 <script src="view/jquery.js"></script>
+<script src="view/jquery.blockUI.js"></script>
 <script src="/blokus/view/statusView.js"></script>
 <script>
 $(document).ready( function(){
   /*init*/
     var color=["red","R"];
     drawChessBoard();
-    drawPickField();
-    var minoInfoS;
-    var x=1,y=1,deltaS=10;
-    for(var i=1;i<=17;i++){
-      minoInfoS=getMinoInfo(i);
-      drawDominoOnField(minoInfoS,deltaS,x,y,color[0]);
-      x+=6;
-      if(i%5==0)
-      {
-        
-        x=1;
-        y+=4;
-        
-      }
-    }
+    drawPickField(color[0]);
     var canvas=$("#canvasMoveDomino")[0];
     var canvasObj = canvas.getContext('2d');
-    // var chessBoardCol=new Array();
-    // var chessBoardRow=new Array();
-    
-    // function Init(){
-    // for(var j=0;j<20;j++){
-    //     chessBoardRow.push(color[1]);
-    //   }
-    // for(var i=0;i<20;i++){
-    //   chessBoardCol.push(chessBoardRow);
-    // }
-    // }
-    // Init();
+    var status = Init(color[0]);
   /*objVal*/  
     var delta=20;
     var moveDomino = new drawMoveDomino(canvasObj,delta,400,400,color[0]);
@@ -51,23 +27,23 @@ $(document).ready( function(){
     var dominoTurn = 'NONE';
     var dominoPut = 'NONE';
     var moveLoop;
-    var dominoInfo='NONE';
-    var status="login";
+    var dominoInfo=getMinoInfo(9);//NONE是未選取拚片狀態
+   
   /*待整理*/
     function animate(){
-      canvasObj.clearRect(0,0,canvas.width,canvas.height);
+      canvasObj.clearRect(0,0,canvas.width,canvas.height);//待修正：長按旋轉會讓拚片消失，該修正流程
       if(dominoPut != 'NONE'){
-      dominoInfo = moveDomino.getDominoInfo();
-      putDomino(dominoInfo,"blue");
+        dominoPutInfo = moveDomino.getDominoInfo(dominoInfo);
+        status=putDomino(status,dominoPutInfo,color[0],color[1]);
       }
       else
-      moveDomino.start(dominoMove,dominoTurn,dominoInfo);
+        moveDomino.start(dominoMove,dominoTurn,dominoInfo);
      
     }    
     function startGame(){
             
 
-            moveLoop = setInterval(animate,82);
+            moveLoop = setInterval(animate,100);
 
             // Start Tracking Keystokes
             $(document).keydown(function(evt) {
