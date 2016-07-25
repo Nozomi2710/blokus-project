@@ -7,24 +7,51 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="view/drawZindex_0.js"></script>
 <script src="view/drawMoveDomino.js"></script>
+<script src="view/minoInfo.js"></script>
 <script src="view/jquery.js"></script>
 <script src="/blokus/view/statusView.js"></script>
 <script>
 $(document).ready( function(){
   /*init*/
+    var color=["red","R"];
     drawChessBoard();
     drawPickField();
+    var minoInfoS;
+    var x=1,y=1,deltaS=10;
+    for(var i=1;i<=17;i++){
+      minoInfoS=getMinoInfo(i);
+      drawDominoOnField(minoInfoS,deltaS,x,y,color[0]);
+      x+=6;
+      if(i%5==0)
+      {
+        
+        x=1;
+        y+=4;
+        
+      }
+    }
     var canvas=$("#canvasMoveDomino")[0];
     var canvasObj = canvas.getContext('2d');
+    // var chessBoardCol=new Array();
+    // var chessBoardRow=new Array();
     
+    // function Init(){
+    // for(var j=0;j<20;j++){
+    //     chessBoardRow.push(color[1]);
+    //   }
+    // for(var i=0;i<20;i++){
+    //   chessBoardCol.push(chessBoardRow);
+    // }
+    // }
+    // Init();
   /*objVal*/  
     var delta=20;
-    var moveDomino = new drawMoveDomino(canvasObj,delta,400,400,"red");
+    var moveDomino = new drawMoveDomino(canvasObj,delta,400,400,color[0]);
     var dominoMove = 'NONE';
     var dominoTurn = 'NONE';
     var dominoPut = 'NONE';
     var moveLoop;
-    var dominoInfo;
+    var dominoInfo='NONE';
     var status="login";
   /*待整理*/
     function animate(){
@@ -34,7 +61,7 @@ $(document).ready( function(){
       putDomino(dominoInfo,"blue");
       }
       else
-      moveDomino.start(dominoMove,dominoTurn);
+      moveDomino.start(dominoMove,dominoTurn,dominoInfo);
      
     }    
     function startGame(){
@@ -86,6 +113,8 @@ $(document).ready( function(){
         }    
     startGame();
     
+    
+    //$("<b>Hello World!</b>").appendTo("h3[name=chessTest]");
 });
 </script>
 <script src="bootstrap/js/bootstrap.js"></script>
@@ -160,7 +189,7 @@ $(document).ready( function(){
             <div class="panel-heading">
               <h3 class="panel-title">訊息欄位</h3>
             </div>
-            <div class="panel-body">
+              <div class="panel-body">
               分數：<br>
               放置數：<br>
               <br>

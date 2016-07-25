@@ -1,8 +1,7 @@
 var canvasObj;//global variable才能被這串物件調用，如果單單只是宣告在主要物件中是沒辦法傳遞的，畢竟js並不是非常嚴謹的類別
 var delta,maxWidth,maxHeight,color;
-var x=120;
-var y=120;
-var minoInfo;
+var x=6;
+var y=6;//把座標改成目前的格數
 var turnDirect=1,moveDirect=1;
 var width,height;
 var drawMoveDomino = function(canvasIn,deltaIn,maxWidthIn,maxHeightIn,colorIn){
@@ -13,98 +12,97 @@ var drawMoveDomino = function(canvasIn,deltaIn,maxWidthIn,maxHeightIn,colorIn){
     /*測試L1*/
     
     // minoName,color,,chessStatus
-    
-    
-    var total = [4,3,"NA"];
-    var minoTurn1 = [2,{x:0,y:0,w:1,h:2},{x:1,y:1,w:1,h:1},"NA",{width:2,height:2}];
-    var minoTurn2 = [2,{x:0,y:0,w:1,h:2},{x:1,y:0,w:1,h:1},"NA",{width:2,height:2}];
-    var minoTurn3 = [2,{x:0,y:0,w:1,h:1},{x:1,y:0,w:1,h:2},"NA",{width:2,height:2}];
-    var minoTurn4 = [2,{x:0,y:1,w:1,h:1},{x:1,y:0,w:1,h:2},"NA",{width:2,height:2}];
-    minoInfo = [total,minoTurn1,minoTurn2,minoTurn3,minoTurn4];
-    
-   
-    delta=deltaIn;
-    canvasObj=canvasIn;
-    maxWidth=maxWidthIn;
-    maxHeight=maxHeightIn;
-    color=colorIn;
+        
+    delta=deltaIn;//設定的變量
+    canvasObj=canvasIn;//畫布物件
+    maxWidth=maxWidthIn;//畫布寬
+    maxHeight=maxHeightIn;//畫布長
+    color=colorIn;//使用者顏色
     
     
 }
+
 drawMoveDomino.prototype ={
-     start :function(direction,turn){
+     start :function(direction,turn,minoInfo){
+        if(minoInfo!="NONE"){
         if(turn=="NONE")
         moveDomino(direction);
         else if(turn!="NONE")
         turnDomino(turn);
         
-         width  =minoInfo[1][4].width*delta;
-         height =minoInfo[1][4].height*delta;
+        var blokusNum=minoInfo[0][1];
+        
+        width  =minoInfo[moveDirect][blokusNum].w;
+        height =minoInfo[moveDirect][blokusNum].h;
          
          /*minoInfo [ turnDirect ][i] */
          /*二維陣列 [  索引變數 ][迴圈] */
          /*改動的時候請小心*/
-     function moveDomino(direction){
-         
-         
-         /*******************************************/
-            if(direction=="Right")
-            x+=delta;
-            else if(direction=="Left")
-            x-=delta;
-            else if(direction=="Up")
-            y-=delta;
-            else if(direction=="Down")
-            y+=delta;
+             function moveDomino(direction){
+                 
+                 
+                 /*******************************************/
+                    if(direction=="Right"&&(x+width)<20)
+                    x+=1;
+                    else if(direction=="Left"&&(x-1)>=0)
+                    x-=1;
+                    else if(direction=="Up"&&(y-1)>=0)
+                    y-=1;
+                    else if(direction=="Down"&&(y+height)<20)
+                    y+=1;
+                    
+                 /******************************************/
+                 
+                 for(var i=0;i<minoInfo[0][1];i++){
+                    canvasObj.fillStyle=color;
+                    canvasObj.fillRect(
+                        (x + minoInfo[moveDirect][i].x)*delta,
+                        (y + minoInfo[moveDirect][i].y)*delta,
+                        delta,
+                        delta);
+                 }
+             }
+             
+             
+             function turnDomino(turn){//還好turn不是保留字
+                if(minoInfo[0][0]!=1){    
+                    if(turn=="turnClock")
+                    turnDirect+=1;
+                    else if(turn=="turnAntiClock")
+                    turnDirect-=1;
+                    
+                    if(turnDirect<=0)
+                    turnDirect+=minoInfo[0][0];
+                    else if(turnDirect>minoInfo[0][0])
+                    turnDirect-=minoInfo[0][0];
+                    
+                    
+                    
+                    if(x>=19-height)//判斷由長變寬是否會影響畫面
+                    x=19-height;
+                    if(y>=19-width)
+                    y=19-width;//用20來減會出現奇怪的bug，用19就沒問題了
+                    
+                    for(var i=0;i<minoInfo[0][1];i++){
+                    canvasObj.fillStyle=color;
+                    canvasObj.fillRect(
+                        (x + minoInfo[turnDirect][i].x)*delta,
+                        (y + minoInfo[turnDirect][i].y)*delta,
+                        delta,
+                        delta);
+                                }
+                   moveDirect=turnDirect;  
+                   width  =minoInfo[turnDirect][blokusNum].w;
+                   height =minoInfo[turnDirect][blokusNum].h;
+                   
+                }
+             }
             
-            if(x<0)
-            x+=delta;
-            else if(x+width>maxWidth)
-            x-=delta;
-            if(y<0)
-            y+=delta;
-            else if(y+height>maxHeight)
-            y-=delta;
-         /**********有空要記得改這個鳥算法*********/
-         for(var i=1;i<=minoInfo[moveDirect][0];i++){
-            canvasObj.fillStyle=color;
-            canvasObj.fillRect(
-                x + minoInfo[moveDirect][i].x*delta,
-                y + minoInfo[moveDirect][i].y*delta,
-                minoInfo[moveDirect][i].w*delta,
-                minoInfo[moveDirect][i].h*delta);
-         }
-     }
-     
-     
-     function turnDomino(turn){//還好turn不是保留字
-            
-            if(turn=="turnClock")
-            turnDirect+=1;
-            else if(turn=="turnAntiClock")
-            turnDirect-=1;
-            
-            if(turnDirect<=0)
-            turnDirect+=4;
-            else if(turnDirect>=5)
-            turnDirect-=4;
-            
-            for(var i=1;i<=minoInfo[turnDirect][0];i++){
-            canvasObj.fillStyle=color;
-            canvasObj.fillRect(
-                x + minoInfo[turnDirect][i].x*delta,
-                y + minoInfo[turnDirect][i].y*delta,
-                minoInfo[turnDirect][i].w*delta,
-                minoInfo[turnDirect][i].h*delta);
-         }
-          moveDirect=turnDirect;  
-          width  =minoInfo[turnDirect][4].width*delta;
-          height =minoInfo[turnDirect][4].height*delta;
-        }
-     },
+            }
+             },
      getDominoInfo : function(){
          var putInfo;
-         putInfo=[x,y,minoInfo[moveDirect]];
+         putInfo=[x,y,minoInfo[0][1],minoInfo[moveDirect]];
          return putInfo;
          }
     

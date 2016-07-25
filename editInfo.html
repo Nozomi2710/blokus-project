@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>忘記帳號/密碼</title>
+<title>會員專區</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="view/jquery.js"></script>
 <script src="/blokus/view/statusView.js"></script>
-<script src="/blokus/view/formView.js"></script>
+<script src="/blokus/view/memberView.js"></script>
 <!--少了jquery超要命的-->
 <script src="bootstrap/js/bootstrap.js"></script>
 </head>
@@ -69,45 +69,42 @@
 </nav>
 <div class="container">
 <div class="page-header">
-        <h1>Nozomi與小遊戲→ <span class="label label-warning">重設密碼</span></h1>
+        <h1>Nozomi與小遊戲→ <span class="label label-primary">會員專區</span></h1>
       </div>
 <div class="col-sm-8 col-sm-offset-2">
     <!--用offset來調整位置，雖然網路上有人會嫌麻煩，但是這樣讓我覺得方便了一點-->
-          <div class="panel panel-warning">
+          <div class="panel panel-primary">
             <div class="panel-heading text-centet">
-              <h3 class="panel-title">重設密碼</h3>
+              <h3 class="panel-title">會員資訊</h3>
             </div>
             <div class="panel-body">
-              <form class="form-horizontal" role="form" name="findForm" action="control/findInfoController.php" method="post">
-             <div class="form-group">
-                    <label class="col-sm-3 control-label">新密碼：</label>
-                    <div class="col-sm-8">
-                        <input type="password" class="form-control" name="userPassWord" id="userPassWord"
-                               placeholder="輸入6-20字英數組合" size="20" 
-                               pattern="[A-Za-z0-9]{6,20}" required="true"/>
-                    </div>
-                    </div>           
-             
-             <div class="form-group">
-                    <label class="col-sm-3 control-label">確認新密碼：</label>
-                    <div class="col-sm-8">
-                        <input type="password" class="form-control" name="checkPassWord" id="checkPassWord"
-                               placeholder="輸入6-20字英數組合" size="20" 
-                               pattern="[A-Za-z0-9]{6,20}" required="true"/>
-                    </div>
-                    </div>        
-             <div class="col-sm-8 col-sm-offset-3" align="center">      
+                <form class="form-horizontal" role="form" method="post" action="/blokus/control/editInfoController.php">
                  
-                <button type="submit" name="resetOK" value="1" class="btn btn-danger btn-lg">
-                <strong>重設密碼</strong>
-                </button>
+                <div class="col-sm-8 col-sm-offset-2">
+                <h3 id="userAccount">帳號：</h3>
                 
-                <button id="resetPWD" type="button" class="btn btn-info btn-lg" onclick="javascript:location.href='./account.html'">
-                <strong>回登入頁面</strong>
-                </button>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">暱稱：</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="userName" 
+                               size="20" required="true"/>
+                    </div>
+                    </div>      
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">信箱：</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" name="userEmail" 
+                               required="true"/>
+                    </div>
+                </div> 
                 
-             </div>
-             </form>
+                <button type="submit" class="btn btn-warning btn-lg" name="editOK">
+                <strong>送出</strong>
+                </button>
+                  
+                </form>
+                </div>
+            
             </div>
           </div>
 </div>

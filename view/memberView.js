@@ -18,6 +18,9 @@ $(document).ready(function(){
                 $('#score1').append(" <b>"+response.score1+"</b>");
                 $('#score2').append(" <b>"+response.score2+"</b>");
                 $('#score3').append(" <b>"+response.score3+"</b>");
+                
+                $("input[name=userName]").attr("value",response.userName);
+                $("input[name=userEmail]").attr("value",response.userEmail);
              }
          }
      });

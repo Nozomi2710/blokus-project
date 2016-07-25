@@ -21,6 +21,16 @@ $(document).ready(function(){
       $("#controlMsg").attr('class', 'panel panel-warning'); 
       $("meta[name=controlToView]").attr("content","5;url=/blokus/account.html");
     }
+    else if(location.search=='?info=5'){
+      $(".userMsg").text("更改成功，五秒後即將導回會員專區");
+      $("#controlMsg").attr('class', 'panel panel-info'); 
+      $("meta[name=controlToView]").attr("content","5;url=/blokus/member.html");
+    }
+    else if(location.search=='?info=6'){
+      $(".userMsg").text("更改失敗，五秒後即將導回會員專區");
+      $("#controlMsg").attr('class', 'panel panel-warning'); 
+      $("meta[name=controlToView]").attr("content","5;url=/blokus/member.html");
+    }
   }
 
 

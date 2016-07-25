@@ -33,7 +33,22 @@ else if(isset($_POST['resetOK'])&&isset($_SESSION['tempId'])){
                 else if($result==false)
                     header('Location:/blokus/view/message/systemMessage.html?info=4');
         }
-        
 
+}
+else if(isset($_POST['resetOK'])&&isset($_SESSION['userId'])){
+        if($_POST['userPassWord']!=$_POST['checkPassWord'])
+            header('Location:/blokus/reset.html?info=1');
+        else
+        {
+            $PWD=$_POST['userPassWord'];
+            $userId=$_SESSION['userId'];
+            $userPWD_MD5=md5($PWD);
+            $resetPWD=new controller();
+            $result=$resetPWD->command("findInfo",2,$userId,$userPWD_MD5);
+                if($result==true)
+                    header('Location:/blokus/view/message/systemMessage.html?info=5');//等等改連結
+                else if($result==false)
+                    header('Location:/blokus/view/message/systemMessage.html?info=6');
+        }
 }
 ?>

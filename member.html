@@ -69,13 +69,13 @@
 </nav>
 <div class="container">
 <div class="page-header">
-        <h1>Nozomi與小遊戲→ <span class="label label-info">會員專區</span></h1>
+        <h1>Nozomi與小遊戲→ <span class="label label-primary">會員專區</span></h1>
       </div>
 <div class="col-sm-8 col-sm-offset-2">
     <!--用offset來調整位置，雖然網路上有人會嫌麻煩，但是這樣讓我覺得方便了一點-->
-          <div class="panel panel-info">
+          <div class="panel panel-primary">
             <div class="panel-heading text-centet">
-              <h3 class="panel-title">找回密碼</h3>
+              <h3 class="panel-title">會員資訊</h3>
             </div>
             <div class="panel-body">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -85,7 +85,10 @@
                 <h4 id="score1">最高得分：</h4>
                 <h4 id="score2">第二高分：</h4>
                 <h4 id="score3">第三高分：</h4>
-                <button type="submit" name="findOK" value="1" class="btn btn-danger btn-lg" onclick="">
+                <button type="button" class="btn btn-warning btn-lg" onclick="javascript:location.href='/blokus/reset.html'">
+                <strong>重設密碼</strong>
+                </button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="javascript:location.href='/blokus/editInfo.html'">
                 <strong>修改資料</strong>
                 </button>
                 

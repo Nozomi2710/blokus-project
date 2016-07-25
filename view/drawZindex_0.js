@@ -22,6 +22,7 @@ function drawChessBoard(){
     context.stroke();
     
 }
+
 function drawPickField(){
     
     var PickField = $("#canvasPickField")[0];
@@ -50,14 +51,32 @@ function putDomino(minoInfo,color){
     var context = chessBoard.getContext('2d');
     var x=minoInfo[0];
     var y=minoInfo[1];
-    for(var i=1;i<=minoInfo[2][0];i++){
+    for(var i=0;i<=minoInfo[2];i++){
             context.fillStyle=color;
             context.fillRect(
-                x+minoInfo[2][i].x*delta,
-                y+minoInfo[2][i].y*delta,
-                minoInfo[2][i].w*delta,
-                minoInfo[2][i].h*delta);
+                (x+minoInfo[3][i].x)*delta,
+                (y+minoInfo[3][i].y)*delta,
+                delta,
+                delta);
          }
     
     
+}
+function drawDominoOnField(minoInfoIn,delta,x,y,color){
+    var PickField = $("#canvasPickField")[0];
+    var context = PickField.getContext('2d');
+    var index;
+    var minoInfo=minoInfoIn;
+    if(minoInfo[0][0]==1)
+    index=1;
+    else
+    index=2;
+    for(var i=0;i<minoInfo[0][1];i++){
+                    context.fillStyle=color;
+                    context.fillRect(
+                        (x + minoInfo[index][i].x)*delta,
+                        (y + minoInfo[index][i].y)*delta,
+                        delta,
+                        delta);
+                                }
 }
