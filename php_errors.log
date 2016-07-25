@@ -1,0 +1,35 @@
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/blokus/model/modelClass.php on line 189
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP Stack trace:
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/editInfoController.php:0
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP   2. controller->command() /home/ubuntu/workspace/blokus/control/editInfoController.php:7
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP   3. controller->editInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:92
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP   4. model->editUserInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:115
+[25-Jul-2016 21:05:27 Asia/Taipei] PHP   5. mysqli_num_rows() /home/ubuntu/workspace/blokus/model/modelClass.php:189
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/blokus/model/modelClass.php on line 189
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP Stack trace:
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/editInfoController.php:0
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP   2. controller->command() /home/ubuntu/workspace/blokus/control/editInfoController.php:7
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP   3. controller->editInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:92
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP   4. model->editUserInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:115
+[25-Jul-2016 21:08:51 Asia/Taipei] PHP   5. mysqli_num_rows() /home/ubuntu/workspace/blokus/model/modelClass.php:189
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/blokus/model/modelClass.php on line 189
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP Stack trace:
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/editInfoController.php:0
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP   2. controller->command() /home/ubuntu/workspace/blokus/control/editInfoController.php:7
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP   3. controller->editInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:92
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP   4. model->editUserInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:115
+[25-Jul-2016 21:10:16 Asia/Taipei] PHP   5. mysqli_num_rows() /home/ubuntu/workspace/blokus/model/modelClass.php:189
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/blokus/model/modelClass.php on line 189
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP Stack trace:
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/editInfoController.php:0
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP   2. controller->command() /home/ubuntu/workspace/blokus/control/editInfoController.php:7
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP   3. controller->editInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:92
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP   4. model->editUserInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:115
+[25-Jul-2016 21:11:44 Asia/Taipei] PHP   5. mysqli_num_rows() /home/ubuntu/workspace/blokus/model/modelClass.php:189
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/ubuntu/workspace/blokus/model/modelClass.php on line 189
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP Stack trace:
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP   1. {main}() /home/ubuntu/workspace/blokus/control/editInfoController.php:0
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP   2. controller->command() /home/ubuntu/workspace/blokus/control/editInfoController.php:7
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP   3. controller->editInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:92
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP   4. model->editUserInfo() /home/ubuntu/workspace/blokus/control/controllerClass.php:115
+[25-Jul-2016 21:12:01 Asia/Taipei] PHP   5. mysqli_num_rows() /home/ubuntu/workspace/blokus/model/modelClass.php:189

@@ -90,6 +90,9 @@ class model{
         
         $sqlS="SELECT userName,gameId ".$userOwn." FROM blokus_userInfo WHERE `userAccount` = '$userAccount' ";
         $result = $this->_myconn->query($sqlS);
+        if(mysqli_num_rows($result)!=1)
+        return false;
+        
         $infoArray = mysqli_fetch_array($result);
         $gameId=$infoArray['gameId'];
         
@@ -115,8 +118,10 @@ class model{
         $anserArray['userEmail']= $infoArray['userEmail'];
         
         $anserArray['score1']   = $scoreArray['scoreBest'];
+        if($self==true){
         $anserArray['score2']   = $scoreArray['scoreSBest'];
         $anserArray['score3']   = $scoreArray['scoreThBest'];
+        }
         
         /*************************************************************************/
         
@@ -186,9 +191,10 @@ class model{
         
         $sqlU="UPDATE blokus_userInfo SET `userName`= '$userName' ,`userEmail`= '$userEmail' WHERE `userId` ='$userId'";
         $resultU = $this->_myconn->query($sqlU);
-        if(mysqli_num_rows($result)<1)
+        
+        if($resultU!=1)
         return false;
-        else if(mysqli_num_rows($result)==1)
+        else if($resultU==1)
         return true;/*UPDATE的回傳值是修正筆數，但是因為使用者權限只能修改自己的資料，故使用回傳值來區分成功與否*/
     }
     function addFeedback($fbCorF,$userId,$userAccount,$fbType,$fbSubType,$fbTitle,$fbContent){

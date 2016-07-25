@@ -46,7 +46,7 @@ else if(isset($_POST['resetOK'])&&isset($_SESSION['userId'])){
             $resetPWD=new controller();
             $result=$resetPWD->command("findInfo",2,$userId,$userPWD_MD5);
                 if($result==true)
-                    header('Location:/blokus/view/message/systemMessage.html?info=5');//等等改連結
+                    header('Location:/blokus/view/message/systemMessage.html?info=5');
                 else if($result==false)
                     header('Location:/blokus/view/message/systemMessage.html?info=6');
         }

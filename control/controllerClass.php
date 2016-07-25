@@ -109,8 +109,8 @@ class controller{
         else{
             $editInfo = new model();
             $userId   =$_SESSION['userId'];
-            $userName =$args[2];
-            $userEmail=$args[3];
+            $userName =$args[1];
+            $userEmail=$args[2];
             
             $result=$editInfo->editUserInfo($userId,$userName,$userEmail);
             
@@ -229,6 +229,11 @@ class controller{
         if($this->userstatus=='pass'){
             $self=true;
             $userAccount=$_SESSION['userAccount'];
+            
+            if(isset($args[2])&&$args[2]==false){
+            $self=false;
+            $userAccount=$args[1];
+            }
         }
         else
         {
