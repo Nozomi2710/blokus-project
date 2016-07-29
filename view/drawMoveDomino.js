@@ -75,6 +75,8 @@ drawMoveDomino.prototype ={
                     if(y>=19-width)
                     y=19-width;//用20來減會出現奇怪的bug，用19就沒問題了
                     
+                    
+                    
                     for(var i=0;i<minoInfo[0][1];i++){
                     canvasObj.fillStyle=color;
                     canvasObj.fillRect(
@@ -94,7 +96,10 @@ drawMoveDomino.prototype ={
              },
      getDominoInfo : function(minoInfo){
          var putInfo;
-         putInfo=[x,y,minoInfo[0][1],minoInfo[moveDirect]];
+         var score=minoInfo[0][1];
+         var Xindex=minoInfo[0][2];
+         var Oindex=minoInfo[0][3];
+         putInfo=[x,y,score,minoInfo[moveDirect],minoInfo[moveDirect+Xindex-1],minoInfo[moveDirect+Oindex-1]];
          return putInfo;
          }
     

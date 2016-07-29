@@ -27,7 +27,7 @@ $(document).ready( function(){
     var dominoTurn = 'NONE';
     var dominoPut = 'NONE';
     var moveLoop;
-    var dominoInfo=getMinoInfo(9);//NONE是未選取拚片狀態
+    var dominoInfo = getMinoInfo(21);//NONE是未選取拚片狀態
    
   /*待整理*/
     function animate(){
@@ -86,7 +86,10 @@ $(document).ready( function(){
                     dominoPut = 'NONE';
                 }
             }); 
-        }    
+        }
+    function tableStatus(status){
+      
+    }
     startGame();
     
     
@@ -166,9 +169,10 @@ $(document).ready( function(){
               <h3 class="panel-title">訊息欄位</h3>
             </div>
               <div class="panel-body">
-              分數：<br>
-              放置數：<br>
-              <br>
+              <!--分數：<br>-->
+              <!--放置數：<br>-->
+              <!--<br>-->
+              
             </div>
           </div>
 <canvas class="canvasGroup" id="canvasPickField"  width="300" height="200" style="z-index : 0"></canvas>
@@ -176,5 +180,6 @@ $(document).ready( function(){
 
 <!--遊戲畫面先註解-->
 </div>
+
 </body>
 </html>
