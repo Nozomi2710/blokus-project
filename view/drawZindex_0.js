@@ -91,51 +91,65 @@ function putDomino(status,minoInfo,color,colorSign){
                 x_check=(x+minoTurn[i].x);
                 y_check=(y+minoTurn[i].y);
                 
-                chess[x_check][y_check]=x_check+"+"+y_check;
+                chess[x_check][y_check]=colorSign;
                 context.fillStyle=color;
                 context.fillRect(
                     x_check*delta,
                     y_check*delta,
                     delta,
                     delta);
-                
-               
+            
             }
             for(var i=1;i<=minoO[0];i++){//statusO
                 x_check=(x+minoO[i].x);
                 y_check=(y+minoO[i].y);
-                context.fillStyle='yellow';
-                context.fillRect(
-                    x_check*delta,
-                    y_check*delta,
-                    delta,
-                    delta);
-                if(chess[x_check][y_check]=="-")
-                    chess[x_check][y_check]="O";
+                // context.fillStyle='yellow';
+                // context.fillRect(
+                //     x_check*delta,
+                //     y_check*delta,
+                //     delta,
+                //     delta);
+                // if(chess[x_check][y_check]=="-"){
+                //     chess[x_check][y_check]="O";
+                //     msg += "("+(x+minoTurn[i].x)+","+(y+minoTurn[i].y)+")= O<br>";
+                //     }
+                // else
+                // {
+                //     msg += "("+(x+minoTurn[i].x)+","+(y+minoTurn[i].y)+")= "+chess[x_check][y_check]+"<br>";
+                // }
                
             }
             // for(var i=1;i<=minoX[0];i++){//statusX
             //     x_check=(x+minoX[i].x);
             //     y_check=(y+minoX[i].y);
-            //     context.fillStyle='black';
-            //     context.fillRect(
-            //         x_check*delta,
-            //         y_check*delta,
-            //         delta,
-            //         delta);
+            //     // context.fillStyle='black';
+            //     // context.fillRect(
+            //     //     x_check*delta,
+            //     //     y_check*delta,
+            //     //     delta,
+            //     //     delta);
             //     if( chess[x_check][y_check]!="R"||chess[x_check][y_check]!="G"||
-            //         chess[x_check][y_check]!="B"||chess[x_check][y_check]!="Y")
-            //     chess[x_check][y_check]="X";
-            
+            //         chess[x_check][y_check]!="B"||chess[x_check][y_check]!="Y"){
+            //         chess[x_check][y_check]="X";
+            //         msg += "("+(x+minoTurn[i].x)+","+(y+minoTurn[i].y)+")= X<br>";
+            //         }
+            //     else
+            //         {
+            //         msg += "("+(x+minoTurn[i].x)+","+(y+minoTurn[i].y)+")= "+chess[x_check][y_check]+"<br>";
+            //         }    
+                        
+                    
             // }
+            
         }
         else{
-                // $.blockUI({ 
-                //     // message: '<h3>不能放這裡!</h3>',
-                //     message: "",
-                //     timeout: 5000 
-                // }); 
-                //alert(console.log(chess));
+                
+               
+                
+                $.blockUI({ 
+                    message: '<h3>不能放這裡!</h3>',
+                    timeout: 6000 
+                }); 
                 
                
         }
