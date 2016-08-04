@@ -11,7 +11,7 @@
 		var _conn = new WebSocket('ws://nozomi271003.ddns.net:8080/blokus');
 		_conn.onopen = function(e) {
 			console.log('Connected to server:', _conn);
-		}
+			}
 		 
 		_conn.onerror = function(e) {
 			console.log('Error: Could not connect to server.');
@@ -52,7 +52,7 @@
 		 		var li = '<li>' + message.text + ' oldmessage:'+oldmessage+'</li>';
 				$('.message-list').append(li);
 				// send message to server
-				_conn.send(JSON.stringify(message));
+				_conn.send(JSON.stringify(message));//轉成JSON送出
 			});
 		});
 	
